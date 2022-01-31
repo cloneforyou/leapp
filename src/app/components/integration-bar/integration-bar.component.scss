@@ -28,7 +28,7 @@ form {
     float: right;
     font-size: 18px;
     position: relative;
-    right: -10px;
+    right: -8px;
     transition: all 0.3s ease;
     cursor: pointer;
     &:hover {
@@ -42,7 +42,7 @@ b.moon-More {
   position: absolute;
   font-size: 20px;
   float: right;
-  right: 7px;
+  right: 6px;
   top: 8px;
 }
 
@@ -122,4 +122,21 @@ img {
   text-align: center;
   text-decoration: underline;
   cursor: pointer;
+}
+
+::ng-deep {
+  .mat-list-item.selected-integration:hover {
+    background-color:$silver-25!important;
+  }
+  .selected-integration .mat-list-item-content {
+    padding: 0 6px 0!important;
+  }
+  .selected-integration:hover .mat-list-item-content .mat-list-text .mat-line {
+    section.status {
+      left: 18px!important;
+    }
+    b.moon-More {
+      right: 7px!important;
+    }
+  }
 }
