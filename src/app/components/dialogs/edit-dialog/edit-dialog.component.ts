@@ -62,6 +62,13 @@ export class EditDialogComponent implements OnInit {
     // Get other readonly properties
     this.form.controls['name'].setValue(this.selectedSession.sessionName);
     this.form.controls['mfaDevice'].setValue(this.selectedSession.mfaDevice);
+
+    this.keychainService.getSecret(environment.appName, `${this.selectedSession.sessionId}-iam-user-aws-session-access-key-id`).then(value => {
+      this.form.controls['accessKey'].setValue(value);
+    });
+    this.keychainService.getSecret(environment.appName, `${this.selectedSession.sessionId}-iam-user-aws-session-secret-access-key`).then(value => {
+      this.form.controls['secretKey'].setValue(value);
+    });
   }
   /**
    * Save the edited account in the workspace

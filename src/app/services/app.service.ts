@@ -1,4 +1,4 @@
-import {EventEmitter, Injectable} from '@angular/core';
+import {EventEmitter, Injectable, TemplateRef} from '@angular/core';
 import {FileService} from './file.service';
 import {ConfirmationDialogComponent} from '../components/dialogs/confirmation-dialog/confirmation-dialog.component';
 import {FormControl, FormGroup} from '@angular/forms';

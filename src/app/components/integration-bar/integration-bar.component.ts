@@ -22,6 +22,7 @@ export interface SelectedIntegration {
 }
 
 export const integrationsFilter = new BehaviorSubject<AwsSsoIntegration[]>([]);
+export const openIntegrationEvent = new BehaviorSubject<boolean>(false);
 
 @Component({
   selector: 'app-integration-bar',
@@ -29,7 +30,6 @@ export const integrationsFilter = new BehaviorSubject<AwsSsoIntegration[]>([]);
   styleUrls: ['./integration-bar.component.scss']
 })
 export class IntegrationBarComponent implements OnInit, OnDestroy {
-
 
   @ViewChildren(MatMenuTrigger)
   triggers: QueryList<MatMenuTrigger>;
@@ -46,6 +46,7 @@ export class IntegrationBarComponent implements OnInit, OnDestroy {
   awsSsoConfigurations: AwsSsoIntegration[];
   modifying: number;
   subscription;
+  subscription2;
 
   form = new FormGroup({
     alias: new FormControl('', [Validators.required]),
@@ -75,6 +76,12 @@ export class IntegrationBarComponent implements OnInit, OnDestroy {
     });
     integrationsFilter.next(this.workspaceService.listAwsSsoIntegrations());
 
+    this.subscription2 = openIntegrationEvent.subscribe(value => {
+      if(value) {
+        this.gotoForm(1, this.selectedAwsSsoConfiguration);
+      }
+    });
+
     this.awsSsoOidcService.listeners.push(this);
     this.loadingInBrowser = false;
     this.loadingInApp = false;
@@ -82,6 +89,7 @@ export class IntegrationBarComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.subscription.unsubscribe();
+    this.subscription2.unsubscribe();
   }
 
   selectedSsoConfigurationCheck(awsSsoConfiguration: AwsSsoIntegration) {

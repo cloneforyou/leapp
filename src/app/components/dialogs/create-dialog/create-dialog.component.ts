@@ -19,8 +19,8 @@ import {
 } from '../../../services/session/aws/methods/aws-iam-role-federated.service';
 import {AzureService, AzureSessionRequest} from '../../../services/session/azure/azure.service';
 import {LoggingService} from '../../../services/logging.service';
-import {OptionsDialogComponent} from '../options-dialog/options-dialog.component';
 import {BsModalService} from 'ngx-bootstrap/modal';
+import {openIntegrationEvent} from '../../integration-bar/integration-bar.component';
 
 @Component({
   selector: 'app-create-dialog',
@@ -35,7 +35,8 @@ export class CreateDialogComponent implements OnInit {
   @Input() selectedRole = '';
   @Input() selectedSamlUrl = '';
 
-  @ViewChild('roleInput', {static: false}) roleInput: ElementRef;
+  @ViewChild('roleInput', {static: false})
+  roleInput: ElementRef;
 
   firstTime = false;
   providerSelected = false;
@@ -256,7 +257,7 @@ export class CreateDialogComponent implements OnInit {
    */
   goToAwsSso() {
     this.appService.closeModal();
-    this.bsModalService.show(OptionsDialogComponent, { animated: false, class: 'option-modal', initialState: { selectedIndex: 3 }});
+    openIntegrationEvent.next(true);
   }
 
   /**
