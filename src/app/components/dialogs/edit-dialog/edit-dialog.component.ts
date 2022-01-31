@@ -67,7 +67,7 @@ export class EditDialogComponent implements OnInit {
    * Save the edited account in the workspace
    */
   saveAccount() {
-    if (this.form.valid) {
+    if (this.formValid()) {
       this.selectedSession.sessionName =  this.form.controls['name'].value;
       this.selectedSession.region      =  this.selectedRegion;
       this.selectedSession.mfaDevice   =  this.form.controls['mfaDevice'].value;
@@ -78,12 +78,17 @@ export class EditDialogComponent implements OnInit {
 
       this.appService.toast(`Session: ${this.form.value.name}, edited.`, ToastLevel.success, '');
       this.closeModal();
+    } else {
+      this.appService.toast(`One or more parameters are invalid, check your choices.`, ToastLevel.warn, '');
     }
   }
 
   formValid() {
-    // TODO: Implement form validation
-    return true;
+    return this.form.get('name').valid &&
+      this.selectedRegion &&
+      this.form.get('mfaDevice').valid &&
+      this.form.get('accessKey').valid &&
+      this.form.get('secretKey').valid;
   }
 
   goBack() {
