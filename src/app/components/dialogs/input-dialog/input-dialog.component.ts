@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, Input, OnInit, ViewChild} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {BsModalRef} from 'ngx-bootstrap/modal';
 import {Constants} from '../../../models/constants';
@@ -8,7 +8,7 @@ import {Constants} from '../../../models/constants';
   templateUrl: './input-dialog.component.html',
   styleUrls: ['./input-dialog.component.scss']
 })
-export class InputDialogComponent implements OnInit {
+export class InputDialogComponent implements OnInit, AfterViewInit {
 
   @Input()
   title: string;
@@ -22,6 +22,8 @@ export class InputDialogComponent implements OnInit {
   confirmText: string;
   @Input()
   cancelText: string;
+  @ViewChild('inputField')
+  inputField: ElementRef;
 
   public form = new FormGroup({
     value: new FormControl('', [Validators.required])
@@ -30,7 +32,10 @@ export class InputDialogComponent implements OnInit {
   /* Just a restyled modal to show a confirmation for delete actions */
   constructor(private bsModalRef: BsModalRef) { }
 
-  ngOnInit() {
+  ngOnInit() {}
+
+  ngAfterViewInit() {
+    this.inputField.nativeElement.focus();
   }
 
   /**
@@ -48,4 +53,7 @@ export class InputDialogComponent implements OnInit {
     this.bsModalRef.hide();
   }
 
+  checkAndConfirm(event: Event) {
+    this.confirm();
+  }
 }

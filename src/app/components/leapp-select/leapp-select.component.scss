@@ -22,3 +22,13 @@
     color: $text-color;
   }
 }
+
+.temp-name {
+  overflow: hidden;
+  max-width: 240px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  display: inline-block;
+  position: relative;
+  top: 6px;
+}

@@ -11,6 +11,7 @@ import {AppService} from '../../services/app.service';
 import {SessionType} from '../../models/session-type';
 import Segment from '../../models/Segment';
 import {globalOrderingFilter} from '../sessions/sessions.component';
+import {syncAllEvent} from "../integration-bar/integration-bar.component";
 
 export interface GlobalFilters {
   searchFilter: string;
@@ -203,6 +204,10 @@ export class CommandBarComponent implements OnInit, OnDestroy, AfterContentCheck
            this.filterForm.get('regionFilter').value.length > 0 ||
            this.filterForm.get('integrationFilter').value.length > 0 ||
            this.filterForm.get('typeFilter').value.length > 0;
+  }
+
+  syncAll() {
+    syncAllEvent.next(true);
   }
 
   private applyFiltersToSessions(values: GlobalFilters, sessions: Session[]) {

@@ -82,7 +82,8 @@
     [disableRipple]="true"
     [ngClass]="selectedSsoConfigurationCheck(awsSsoConfiguration)"
     (contextmenu)="applyContextMenu(i, awsSsoConfiguration, $event);"
-    (click)="applySegmentFilter(awsSsoConfiguration, $event);">
+    (click)="applySegmentFilter(awsSsoConfiguration, $event);"
+    (dblclick)="forceSync(awsSsoConfiguration.id)">
 
     <div mat-line>
       <i class="moon-Puzzle"></i>
@@ -98,6 +99,10 @@
       <b class="moon-More" (click)="applyContextMenu(i, awsSsoConfiguration, $event);" ></b>
     </div>
     <div [matMenuTriggerFor]="integrationMenu" [matMenuTriggerData]="{ configuration: awsSsoConfiguration }" [style.position]="'absolute'" [style.left.px]="menuX" [style.top.px]="menuY"></div>
+  </mat-list-item>
+  <mat-list-item (click)="$event.preventDefault(); $event.stopPropagation(); gotoForm(1, selectedAwsSsoConfiguration);">
+    <div mat-line class="gray-line">
+      <i class="moon-Add"></i><span>Add Integration</span></div>
   </mat-list-item>
 </mat-list>
 

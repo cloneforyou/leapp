@@ -23,6 +23,7 @@ export interface SelectedIntegration {
 
 export const integrationsFilter = new BehaviorSubject<AwsSsoIntegration[]>([]);
 export const openIntegrationEvent = new BehaviorSubject<boolean>(false);
+export const syncAllEvent = new BehaviorSubject<boolean>(false);
 
 @Component({
   selector: 'app-integration-bar',
@@ -47,6 +48,7 @@ export class IntegrationBarComponent implements OnInit, OnDestroy {
   modifying: number;
   subscription;
   subscription2;
+  subscription3;
 
   form = new FormGroup({
     alias: new FormControl('', [Validators.required]),
@@ -70,7 +72,7 @@ export class IntegrationBarComponent implements OnInit, OnDestroy {
               private loggingService: LoggingService) { }
 
   ngOnInit(): void {
-    this.subscription = integrationsFilter.subscribe(integrations => {
+    this.subscription = integrationsFilter.subscribe(_ => {
       this.setValues();
       this.selectedIntegrations = this.awsSsoConfigurations.map(awsIntegration => ({ id: awsIntegration.id, selected: false }));
     });
@@ -82,6 +84,18 @@ export class IntegrationBarComponent implements OnInit, OnDestroy {
       }
     });
 
+    this.subscription3 = syncAllEvent.subscribe(async value => {
+      if(value) {
+        for(let i = 0; i < this.awsSsoConfigurations.length; i++) {
+          const integration = this.awsSsoConfigurations[i];
+          if(this.isOnline(integration)) {
+             await this.forceSync(integration.id);
+          }
+        }
+        this.appService.toast('Integrations synchronized.', ToastLevel.info, '');
+      }
+    });
+
     this.awsSsoOidcService.listeners.push(this);
     this.loadingInBrowser = false;
     this.loadingInApp = false;
@@ -90,6 +104,7 @@ export class IntegrationBarComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     this.subscription.unsubscribe();
     this.subscription2.unsubscribe();
+    this.subscription3.unsubscribe();
   }
 
   selectedSsoConfigurationCheck(awsSsoConfiguration: AwsSsoIntegration) {
@@ -146,7 +161,7 @@ export class IntegrationBarComponent implements OnInit, OnDestroy {
       this.loadingInBrowser = (this.selectedAwsSsoConfiguration.browserOpening === Constants.inBrowser.toString());
       this.loadingInApp = (this.selectedAwsSsoConfiguration.browserOpening === Constants.inApp.toString());
 
-      if(this.loadingInBrowser) {
+      if(this.loadingInBrowser && !this.isOnline(this.selectedAwsSsoConfiguration)) {
         this.modalRef = this.bsModalService.show(this.ssoModalTemplate, { class: 'sso-modal'});
       }
 
@@ -157,7 +172,10 @@ export class IntegrationBarComponent implements OnInit, OnDestroy {
           this.awsSsoRoleService.create(ssoRoleSession, ssoRoleSession.profileId);
         });
 
-        this.modalRef.hide();
+        if(this.modalRef) {
+          this.modalRef.hide();
+        }
+
         this.loadingInBrowser = false;
         this.loadingInApp = false;
       } catch (err) {

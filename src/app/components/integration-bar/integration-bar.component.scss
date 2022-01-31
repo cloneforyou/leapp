@@ -67,10 +67,9 @@ b.moon-More {
 .green-dot { display: inline-block; width: 8px; height: 8px; border-radius: 4px; background: #8fc92a; }
 .red-dot { display: inline-block; width: 8px; height: 8px; border-radius: 4px; background: #d64123; }
 
-
-
-
-
+.gray-line {
+  color: $silver-dark;
+}
 
 .loading-content {
   margin: 0 auto;

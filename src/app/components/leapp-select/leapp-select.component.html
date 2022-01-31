@@ -14,7 +14,7 @@
     }}
     <ng-template ng-footer-tmp>
       <div class="create-new" *ngIf="!checkNewElement()"><i class="moon-Add"></i>&nbsp;Add new {{whatToAddName}}</div>
-      <div class="create-new add" (click)="addNewElement()" *ngIf="checkNewElement()"><i class="moon-Add"></i>&nbsp;Add "<strong>{{temporaryName}}</strong>"</div>
+      <div class="create-new add" (click)="addNewElement()" *ngIf="checkNewElement()"><i class="moon-Add"></i>&nbsp;Add "<strong class="temp-name">{{temporaryName}}</strong>"</div>
     </ng-template>
   </ng-select>
 </ng-container>
