@@ -27,10 +27,23 @@ h4 {
 }
 
 .modal {
-  background-color: rgba(89, 89, 116, 0.66);
+  top: $commandbar-height;
+}
+.modal-backdrop {
+  top: $commandbar-height;
+  background-color: #292044;
+  &::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    height: $commandbar-height;
+    left: 0;
+    right: 0;
+    background-color: #292044;
+  }
 }
 
 .modal-dialog {
-  margin: 2.5rem auto;
+  margin: 0 auto;
 }
 

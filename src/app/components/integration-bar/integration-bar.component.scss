@@ -57,6 +57,12 @@ b.moon-More {
   }
 }
 
+img {
+  width: 20px;
+  position: relative;
+  top: -6px;
+  margin-right: 7px;
+}
 
 .status {
   position: absolute;
@@ -64,8 +70,8 @@ b.moon-More {
   left: 29px;
   width: inherit;
 }
-.green-dot { display: inline-block; width: 8px; height: 8px; border-radius: 4px; background: #8fc92a; }
-.red-dot { display: inline-block; width: 8px; height: 8px; border-radius: 4px; background: #d64123; }
+.green-dot { display: inline-block; width: 8px; height: 8px; border-radius: 4px; background: #8fc92a; border: 1px solid white; }
+.red-dot { display: inline-block; width: 8px; height: 8px; border-radius: 4px; background: #d64123; border: 1px solid white; }
 
 .gray-line {
   color: $silver-dark;

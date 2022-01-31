@@ -548,6 +548,11 @@ i.fal.fa-plus-circle {
   transform: unset !important;
 }
 
+button, a, input, i {
+  -webkit-user-drag: none;
+  -webkit-app-region: no-drag;
+}
+
 .window-buttons, .windows-menu { display: none; }
 
 ::ng-deep {
