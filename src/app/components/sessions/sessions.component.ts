@@ -162,7 +162,18 @@ export class SessionsComponent implements OnInit, OnDestroy {
       }))));
       this.columnSettings[1].orderStyle = !this.columnSettings[1].orderStyle;
     } else if (this.columnSettings[1].activeArrow) {
-      globalOrderingFilter.next(JSON.parse(JSON.stringify(this.eGlobalFilteredSessions.sort((a, b) => this.getRole(b).localeCompare(this.getRole(a))))));
+      globalOrderingFilter.next(JSON.parse(JSON.stringify(this.eGlobalFilteredSessions.sort((a, b) => {
+        if(this.getRole(a) === '') {
+          return -1;
+        }
+        if(this.getRole(b) === '') {
+          return 1;
+        }
+        if(this.getRole(a) === this.getRole(b)) {
+          return 0;
+        }
+        return this.getRole(b) < this.getRole(a) ? -1 : 1;
+      }))));
       this.columnSettings[1].activeArrow = false;
     } else {
       this.columnSettings[1].orderStyle = !this.columnSettings[1].orderStyle;
