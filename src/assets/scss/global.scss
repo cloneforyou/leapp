@@ -434,6 +434,34 @@ small.text-error {
   align-items: center;
 }
 
+.selected-integration {
+  background-color: $silver-25;
+  border-radius: 6px;
+  margin-left: 10px!important;
+  width: 218px!important;
+  transition: all 0.2s ease;
+
+  .mat-list-item-content {
+    padding: 0 7px!important;
+
+    .status {
+      left: 19px;
+    }
+  }
+  &:hover {
+    .mat-list-item-content {
+      left: 1px;
+
+      .status {
+        left: 20px;
+      }
+    }
+    .mat-line {
+      padding: 0 8px!important;
+    }
+  }
+}
+
 ::ng-deep {
   .app-windows-detected {
     .compact {
@@ -491,7 +519,6 @@ i.fal.fa-plus-circle {
 .tooltip-inner {
   font-size: 12px;
 }
-
 
 .bs-tooltip-auto[x-placement^=left] .arrow::before,
 .bs-tooltip-left .arrow::before,

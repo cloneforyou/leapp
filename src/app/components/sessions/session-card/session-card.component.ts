@@ -22,7 +22,7 @@ import {optionBarIds} from '../sessions.component';
 import {MatMenuTrigger} from '@angular/material/menu';
 import {IGlobalColumns} from '../../command-bar/command-bar.component';
 import {EditDialogComponent} from '../../dialogs/edit-dialog/edit-dialog.component';
-import {LeappBaseError} from "../../../errors/leapp-base-error";
+import {LeappBaseError} from '../../../errors/leapp-base-error';
 
 @Component({
   // eslint-disable-next-line @angular-eslint/component-selector

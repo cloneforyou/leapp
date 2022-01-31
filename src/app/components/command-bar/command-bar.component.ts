@@ -59,7 +59,7 @@ export class CommandBarComponent implements OnInit, OnDestroy, AfterContentCheck
 
   providers: {show: boolean; id: string; name: string; value: boolean}[];
   profiles: {show: boolean; id: string; name: string; value: boolean}[];
-  integrations: any[];
+  integrations: {show: boolean; id: string; name: string; value: boolean}[];
   types: {show: boolean; id: SessionType; category: string; name: string; value: boolean}[];
   regions: {show: boolean; name: string; value: boolean}[];
 
@@ -141,8 +141,6 @@ export class CommandBarComponent implements OnInit, OnDestroy, AfterContentCheck
       }
     });
 
-    //console.log('IN COMMAND BAR ON INIT');
-    //console.log(sessions);
     this.subscription6 = globalOrderingFilter.subscribe((sessions: Session[]) => {
       globalFilteredSessions.next(sessions);
     });
@@ -178,13 +176,13 @@ export class CommandBarComponent implements OnInit, OnDestroy, AfterContentCheck
     this.filterExtended = false;
     compactMode.next(this.compactMode);
     globalHasFilter.next(this.filterExtended);
-    this.saveTemporarySegmentAndApply();
+    // this.saveTemporarySegmentAndApply();
   }
 
   toggleFilters() {
     this.filterExtended = !this.filterExtended;
     globalHasFilter.next(this.filterExtended);
-    this.saveTemporarySegmentAndApply();
+    // this.saveTemporarySegmentAndApply();
     CommandBarComponent.changeSessionsTableHeight();
   }
 

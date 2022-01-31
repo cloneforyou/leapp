@@ -1,22 +1,41 @@
-import {Component, OnInit} from '@angular/core';
-import {Router} from '@angular/router';
-import {FormControl, FormGroup, Validators} from '@angular/forms';
-import {AppService, LoggerLevel, ToastLevel} from '../../services/app.service';
-import {WorkspaceService} from '../../services/workspace.service';
-import {AwsSsoRoleService, SsoRoleSession} from '../../services/session/aws/methods/aws-sso-role.service';
+import {Component, OnDestroy, OnInit, QueryList, TemplateRef, ViewChild, ViewChildren} from '@angular/core';
 import {Constants} from '../../models/constants';
-import {AwsSsoOidcService, BrowserWindowClosing} from '../../services/aws-sso-oidc.service';
-import {LoggingService} from '../../services/logging.service';
 import {AwsSsoIntegration} from '../../models/aws-sso-integration';
+import {globalFilteredSessions} from '../command-bar/command-bar.component';
+import {WorkspaceService} from '../../services/workspace.service';
+import {AwsSsoRoleSession} from '../../models/aws-sso-role-session';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {AwsSsoIntegrationService} from '../../services/aws-sso-integration.service';
+import {AwsSsoRoleService, SsoRoleSession} from '../../services/session/aws/methods/aws-sso-role.service';
+import {AppService, LoggerLevel, ToastLevel} from '../../services/app.service';
+import {Router} from '@angular/router';
+import {AwsSsoOidcService} from '../../services/aws-sso-oidc.service';
+import {LoggingService} from '../../services/logging.service';
 import {formatDistance, isPast} from 'date-fns';
+import {BsModalRef, BsModalService} from 'ngx-bootstrap/modal';
+import {BehaviorSubject} from 'rxjs';
+import {MatMenuTrigger} from '@angular/material/menu';
+
+export interface SelectedIntegration {
+  id: string;
+  selected: boolean;
+}
+
+export const integrationsFilter = new BehaviorSubject<AwsSsoIntegration[]>([]);
 
 @Component({
-  selector: 'app-aws-sso',
-  templateUrl: './integration.component.html',
-  styleUrls: ['./integration.component.scss']
+  selector: 'app-integration-bar',
+  templateUrl: './integration-bar.component.html',
+  styleUrls: ['./integration-bar.component.scss']
 })
-export class IntegrationComponent implements OnInit, BrowserWindowClosing {
+export class IntegrationBarComponent implements OnInit, OnDestroy {
+
+
+  @ViewChildren(MatMenuTrigger)
+  triggers: QueryList<MatMenuTrigger>;
+
+  @ViewChild('ssoModalTemplate', { static: false })
+  ssoModalTemplate: TemplateRef<any>;
 
   eConstants = Constants;
   regions = [];
@@ -24,35 +43,82 @@ export class IntegrationComponent implements OnInit, BrowserWindowClosing {
   loadingInBrowser = false;
   loadingInApp = false;
   chooseIntegration = false;
+  awsSsoConfigurations: AwsSsoIntegration[];
+  modifying: number;
+  subscription;
 
-  public awsSsoConfigurations: AwsSsoIntegration[];
-  public modifying: number;
-
-  public form = new FormGroup({
+  form = new FormGroup({
     alias: new FormControl('', [Validators.required]),
     portalUrl: new FormControl('', [Validators.required, Validators.pattern('https?://.+')]),
     awsRegion: new FormControl('', [Validators.required]),
     defaultBrowserOpening: new FormControl('', [Validators.required])
   });
 
-  public logoutLoadings: any;
+  logoutLoadings: any;
+  selectedIntegrations: SelectedIntegration[];
+  modalRef: BsModalRef;
+  menuX: number;
+  menuY: number;
 
-  constructor(
-    private appService: AppService,
-    private awsSsoRoleService: AwsSsoRoleService,
-    private router: Router,
-    private workspaceService: WorkspaceService,
-    private awsSsoOidcService: AwsSsoOidcService,
-    private loggingService: LoggingService
-  ) {}
+  constructor(private appService: AppService,
+              private bsModalService: BsModalService,
+              private awsSsoRoleService: AwsSsoRoleService,
+              private router: Router,
+              private workspaceService: WorkspaceService,
+              private awsSsoOidcService: AwsSsoOidcService,
+              private loggingService: LoggingService) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
+    this.subscription = integrationsFilter.subscribe(integrations => {
+      this.setValues();
+      this.selectedIntegrations = this.awsSsoConfigurations.map(awsIntegration => ({ id: awsIntegration.id, selected: false }));
+    });
+    integrationsFilter.next(this.workspaceService.listAwsSsoIntegrations());
+
     this.awsSsoOidcService.listeners.push(this);
-
     this.loadingInBrowser = false;
     this.loadingInApp = false;
+  }
 
-    this.setValues();
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
+  }
+
+  selectedSsoConfigurationCheck(awsSsoConfiguration: AwsSsoIntegration) {
+    const index = this.selectedIntegrations.findIndex(s => s.id === awsSsoConfiguration.id);
+    return this.selectedIntegrations[index].selected ? 'selected-integration' : '';
+  }
+
+  applyContextMenu(index: number, awsSsoConfiguration: AwsSsoIntegration, event) {
+    event.preventDefault();
+    event.stopPropagation();
+
+    this.appService.closeAllMenuTriggers();
+
+    this.selectedIntegrations.forEach(s => s.selected = false);
+
+    const selectedIndex = this.selectedIntegrations.findIndex(s => s.id === awsSsoConfiguration.id);
+    this.selectedIntegrations[selectedIndex].selected = true;
+
+    setTimeout(() => {
+      this.menuY = event.layerY - 10;
+      this.menuX = event.layerX - 10;
+
+      this.triggers.get(index).openMenu();
+      this.appService.setMenuTrigger(this.triggers.get(index));
+    }, 100);
+  }
+
+  applySegmentFilter(awsSsoConfiguration: AwsSsoIntegration, event: MouseEvent) {
+    event.preventDefault();
+    event.stopPropagation();
+
+    this.selectedIntegrations.forEach(s => s.selected = false);
+
+    const selectedIndex = this.selectedIntegrations.findIndex(s => s.id === awsSsoConfiguration.id);
+    this.selectedIntegrations[selectedIndex].selected = true;
+
+    globalFilteredSessions.next(this.workspaceService.sessions.filter(s => (s as AwsSsoRoleSession).awsSsoConfigurationId === awsSsoConfiguration.id));
   }
 
   async logout(configurationId: string) {
@@ -72,13 +138,18 @@ export class IntegrationComponent implements OnInit, BrowserWindowClosing {
       this.loadingInBrowser = (this.selectedAwsSsoConfiguration.browserOpening === Constants.inBrowser.toString());
       this.loadingInApp = (this.selectedAwsSsoConfiguration.browserOpening === Constants.inApp.toString());
 
+      if(this.loadingInBrowser) {
+        this.modalRef = this.bsModalService.show(this.ssoModalTemplate, { class: 'sso-modal'});
+      }
+
       try {
         const ssoRoleSessions: SsoRoleSession[] = await AwsSsoIntegrationService.getInstance().provisionSessions(this.selectedAwsSsoConfiguration.id);
         ssoRoleSessions.forEach(ssoRoleSession => {
           ssoRoleSession.awsSsoConfigurationId = configurationId;
           this.awsSsoRoleService.create(ssoRoleSession, ssoRoleSession.profileId);
         });
-        this.router.navigate(['/dashboard']);
+
+        this.modalRef.hide();
         this.loadingInBrowser = false;
         this.loadingInApp = false;
       } catch (err) {
@@ -86,10 +157,6 @@ export class IntegrationComponent implements OnInit, BrowserWindowClosing {
         throw err;
       }
     }
-  }
-
-  async goBack() {
-    await this.router.navigate(['/dashboard']);
   }
 
   async gotoWebForm(integrationId: string) {
@@ -122,11 +189,13 @@ export class IntegrationComponent implements OnInit, BrowserWindowClosing {
     this.awsSsoRoleService.interrupt();
     this.loadingInBrowser = false;
     this.loadingInApp = false;
+    this.modalRef.hide();
   }
 
   catchClosingBrowserWindow(): void {
     this.loadingInBrowser = false;
     this.loadingInApp = false;
+    this.modalRef.hide();
   }
 
   gotoForm(modifying, currentAwsSsoConfiguration) {
@@ -135,10 +204,23 @@ export class IntegrationComponent implements OnInit, BrowserWindowClosing {
     this.modifying = modifying;
     this.selectedAwsSsoConfiguration = currentAwsSsoConfiguration;
 
+    if(modifying === 1) {
+      this.selectedAwsSsoConfiguration = {
+        id: 'new AWS Single Sign-On',
+        alias: '',
+        region: this.regions[0].region,
+        portalUrl: '',
+        browserOpening: Constants.inApp,
+        accessTokenExpiration: undefined
+      };
+    }
+
     this.form.get('alias').setValue(this.selectedAwsSsoConfiguration.alias);
     this.form.get('portalUrl').setValue(this.selectedAwsSsoConfiguration.portalUrl);
     this.form.get('awsRegion').setValue(this.selectedAwsSsoConfiguration.region);
     this.form.get('defaultBrowserOpening').setValue(this.selectedAwsSsoConfiguration.browserOpening);
+
+    this.modalRef = this.bsModalService.show(this.ssoModalTemplate, { class: 'sso-modal'});
   }
 
   save() {
@@ -147,8 +229,6 @@ export class IntegrationComponent implements OnInit, BrowserWindowClosing {
       const portalUrl = this.form.get('portalUrl').value;
       const region = this.form.get('awsRegion').value;
       const browserOpening = this.form.get('defaultBrowserOpening').value;
-
-      console.log(portalUrl, region, browserOpening);
 
       if(this.modifying === 1) {
         // Save
@@ -168,9 +248,8 @@ export class IntegrationComponent implements OnInit, BrowserWindowClosing {
           browserOpening
         );
       }
-
-      this.setValues();
-      this.gotoForm(0, this.selectedAwsSsoConfiguration);
+      integrationsFilter.next(this.workspaceService.listAwsSsoIntegrations());
+      this.modalRef.hide();
     } else {
       this.appService.toast('Form is not valid', ToastLevel.warn, 'Form validation');
     }
@@ -190,9 +269,9 @@ export class IntegrationComponent implements OnInit, BrowserWindowClosing {
 
   isOnline(awsSsoConfiguration: AwsSsoIntegration) {
     return (awsSsoConfiguration.accessTokenExpiration !== null &&
-           awsSsoConfiguration.accessTokenExpiration !== undefined &&
-           awsSsoConfiguration.accessTokenExpiration !== '') &&
-           !isPast(new Date(awsSsoConfiguration.accessTokenExpiration));
+        awsSsoConfiguration.accessTokenExpiration !== undefined &&
+        awsSsoConfiguration.accessTokenExpiration !== '') &&
+      !isPast(new Date(awsSsoConfiguration.accessTokenExpiration));
   }
 
   remainingHours(awsSsoConfiguration: AwsSsoIntegration) {

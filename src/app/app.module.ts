@@ -7,7 +7,6 @@ import { HttpClientModule} from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ConfirmationDialogComponent } from './components/dialogs/confirmation-dialog/confirmation-dialog.component';
 import {InputDialogComponent} from './components/dialogs/input-dialog/input-dialog.component';
-import {IntegrationComponent} from './to-be-moved/integration/integration.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {NgSelectModule} from '@ng-select/ng-select';
 import {TrayMenuComponent} from './components/tray-menu/tray-menu.component';
@@ -22,7 +21,6 @@ import {ComponentsModule} from './components/components.module';
 @NgModule({
   declarations: [
     AppComponent,
-    IntegrationComponent,
     TrayMenuComponent
   ],
   imports: [

@@ -33,6 +33,7 @@ import { FilterMenuComponent } from './filter-menu/filter-menu.component';
 import { SegmentDialogComponent } from './dialogs/segment-dialog/segment-dialog.component';
 import { ColumnDialogComponent } from './dialogs/column-dialog/column-dialog.component';
 import { LeappSelectComponent } from './leapp-select/leapp-select.component';
+import { IntegrationBarComponent } from './integration-bar/integration-bar.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +55,8 @@ import { LeappSelectComponent } from './leapp-select/leapp-select.component';
     FilterMenuComponent,
     SegmentDialogComponent,
     ColumnDialogComponent,
-    LeappSelectComponent
+    LeappSelectComponent,
+    IntegrationBarComponent
   ],
   imports: [
     CommonModule,
