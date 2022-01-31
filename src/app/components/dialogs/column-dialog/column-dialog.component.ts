@@ -2,7 +2,7 @@ import {Component, Input, OnDestroy, OnInit} from '@angular/core';
 import {BsModalRef} from 'ngx-bootstrap/modal';
 import {AppService} from '../../../services/app.service';
 import {FormControl, FormGroup} from '@angular/forms';
-import {globalColumns, IGlobalColumns} from '../../command-bar/command-bar.component';
+import {compactMode, globalColumns, IGlobalColumns} from '../../command-bar/command-bar.component';
 
 @Component({
   selector: 'app-column-dialog',
@@ -20,7 +20,10 @@ export class ColumnDialogComponent implements OnInit, OnDestroy {
     region: new FormControl()
   });
 
+  showRegion;
+
   private subscription;
+  private subscription2;
   private values;
 
   constructor(private bsModalRef: BsModalRef, private appService: AppService) {}
@@ -33,12 +36,14 @@ export class ColumnDialogComponent implements OnInit, OnDestroy {
 
     this.subscription = this.columnForm.valueChanges.subscribe((values: IGlobalColumns) => {
       this.values = values;
-      console.log(values);
     });
+
+    this.subscription2 = compactMode.subscribe(value => this.showRegion = !value);
   }
 
   ngOnDestroy(): void {
     this.subscription.unsubscribe();
+    this.subscription2.unsubscribe();
   }
 
   closeModal() {
