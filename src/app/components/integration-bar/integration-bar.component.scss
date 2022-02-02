@@ -26,7 +26,7 @@ form {
 
   i.moon-Add {
     float: right;
-    font-size: 18px;
+    font-size: 20px;
     position: relative;
     right: -8px;
     transition: all 0.3s ease;
@@ -74,7 +74,7 @@ img {
 .red-dot { display: inline-block; width: 8px; height: 8px; border-radius: 4px; background: #d64123; border: 1px solid white; }
 
 .gray-line {
-  color: $silver-dark;
+  color: $region-tag-color;
 }
 
 .loading-content {
