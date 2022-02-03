@@ -2,7 +2,8 @@
 @import "../../../../assets/scss/mixins/palette";
 @import "../../../../assets/scss/global";
 
-.status-item { font-size: 12px; }
+.status-item, .hover-item { font-size: 12px; }
+.hover-item { display: none; cursor: pointer; }
 
 .active {
   background-color: $active-card;
@@ -173,6 +174,10 @@ i.fa-spin.status-item {
   font-size: 13px;
   margin-left: 30px;
 }
+i.hover-item {
+  font-size: 20px;
+  padding-left: 42%;
+}
 
 td.active {
   font-weight: normal!important;
@@ -201,7 +206,7 @@ td:nth-child(4) {
   }
   .compact {
     td {
-      padding: 0 0 0 0px!important;
+      padding: 0 0 0 0!important;
     }
     td:nth-child(1) {
       padding: 0 0 0 20px!important;

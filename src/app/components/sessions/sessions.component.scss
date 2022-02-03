@@ -87,9 +87,16 @@ i.moon-Caret-down {
   }
 }
 
+tr .status-item {display: inline-block; }
+tr .hover-item { display: none; }
+
 ::ng-deep {
   th:hover i.moon-Dropdown.hidden-arrow.ascendent-order-arrow,
   th:hover i.moon-Caret-down.hidden-arrow.ascendent-order-arrow {
     opacity: 1!important;
+  }
+  tr:hover {
+    .status-item { display: none; }
+    .hover-item { display: inline-block!important; }
   }
 }

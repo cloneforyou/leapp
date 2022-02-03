@@ -28,6 +28,7 @@
 <td (dblclick)="switchCredentials()" (click)="openOptionBar(session);" (contextmenu)="openContextMenu($event, session)" class="{{eOptionIds[session.sessionId] ? 'selected' : (session.status !== eSessionStatus.inactive ? 'active' : '')}} table-column-6">
   <i class="status-item fas fa-circle {{session.status === eSessionStatus.active ? 'active' : 'offline'}}" *ngIf="session.status !== eSessionStatus.pending"></i>
   <i class="status-item far fa-spinner-third fa-spin" *ngIf="session.status === eSessionStatus.pending"></i>
+  <i class="hover-item moon-More" (click)="openContextMenu($event, session);"></i>
 </td>
 
 
@@ -196,7 +197,12 @@
         <div class="form-field">
           <div class="form-group">
             <label>Select a region</label>
-            <ng-select bindLabel="{{session.type === eSessionType.azure ? 'location' : 'region'}}" bindValue="{{session.type === eSessionType.azure ? 'location' : 'region'}}" [items]="regionOrLocations" [(ngModel)]="selectedDefaultRegion" placeholder="{{placeholder}}"></ng-select>
+            <ng-select
+              bindLabel="{{session.type === eSessionType.azure ? 'location' : 'region'}}"
+              bindValue="{{session.type === eSessionType.azure ? 'location' : 'region'}}"
+              [items]="regionOrLocations"
+              [addTag]="false"
+              [(ngModel)]="selectedDefaultRegion" placeholder="{{placeholder}}"></ng-select>
           </div>
         </div>
       </div>
@@ -215,18 +221,27 @@
 
   <div class="named-profile-form">
     <div class="form-container">
-      <div class="form-group">
-        <div class="form-field">
-          <div class="form-group">
-            <label>Select a named profile</label>
-            <ng-select bindLabel="name"
-                       [addTag]="addNewProfile"
-                       [items]="profiles"
-                       [(ngModel)]="selectedProfile"
-                       placeholder="select a profile"></ng-select>
+      <form [formGroup]="form">
+        <div class="form-group">
+          <div class="form-field">
+            <div class="form-group">
+              <label>Select a named profile</label>
+
+              <app-leapp-select [controlName]="'awsProfile'"
+                                [form]="form"
+                                [placeholder]="'add a new named profile'"
+                                [items]="profiles"
+                                [dropdownPosition]="'down'"
+                                [whatToAddName]="'Named Profile'"
+                                [defaultNewValue]="addNewUUID"
+                                [bindLabel]="'label'"
+                                [bindValue]="'value'"
+                                [uppercased]="false"
+                                (selected)="profiles = $event.items; selectedProfile = $event.item;"></app-leapp-select>
+            </div>
           </div>
         </div>
-      </div>
+      </form>
     </div>
     <br>
     <button type="button" (click)="changeProfile();" [disabled]="!selectedProfile" [ngClass]="(!selectedProfile) ? 'btn-control disabled': 'btn-control'">Save Profile</button>
