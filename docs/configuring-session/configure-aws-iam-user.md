@@ -16,7 +16,8 @@ A IAM User in AWS consists of a name and a set of long-term credentials. Leapp n
 | `MFA DEVICE`    | Your MFA device ID to set up multi-factor authentication. See below how to achieve that. |
 | `ACCESS KEY ID` | Your long-term Access Key. It will be used to generate a short-term set of credentials. Don't disclose it to anyone. |
 | `SECRET ACCESS KEY` | Your long-term Secret Key. It will be used to generate a short-term set of credentials. Don't disclose it to anyone. |
-![Add AWS IAM User Screen](../../images/screens/newuxui/aws-iam-user.png)
+
+![Add AWS IAM User Screen](../../images/screens/newuxui/aws-iam-user.png){: .centered-image}
 ## Video Tutorial
 
-![](../../videos/newuxui/User.gif?style=center-img)
+<video width="100%" autoplay="true" loop="true" control="false"> <source src="../../videos/newuxui/aws-iam-user.mp4" type="video/mp4"> </video>

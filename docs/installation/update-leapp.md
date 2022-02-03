@@ -5,7 +5,7 @@ If so, a dialog message will pop up and show `version number`, `release date` an
 
 [comment]: <> (<img width="426" alt="Screenshot 2021-05-11 at 10 45 58" src="https://user-images.githubusercontent.com/9497292/117786735-1e418f80-b246-11eb-8e53-b3a5f4c79126.png">)
 
-![](../../images/screens/newuxui/update.png?style=center-img)
+![](../../images/screens/newuxui/update.png?style=center-img){: .centered-image}
 
 In this modal, a user has the ability to:
 

@@ -19,4 +19,4 @@ After logging in the first-time, Leapp will map all your roles and users into Se
 
 ## Video Tutorial
 
-![](../../videos/newuxui/sso.gif?style=center-img)
+<video width="100%" autoplay="true" loop="true" control="false"> <source src="../../videos/newuxui/aws-sso.mp4" type="video/mp4"> </video>
