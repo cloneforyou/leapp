@@ -3,7 +3,9 @@
 Leapp checks every **10 minutes** (counting from application start) that a new version is available. 
 If so, a dialog message will pop up and show `version number`, `release date` and `changelog`
 
-<img width="426" alt="Screenshot 2021-05-11 at 10 45 58" src="https://user-images.githubusercontent.com/9497292/117786735-1e418f80-b246-11eb-8e53-b3a5f4c79126.png">
+[comment]: <> (<img width="426" alt="Screenshot 2021-05-11 at 10 45 58" src="https://user-images.githubusercontent.com/9497292/117786735-1e418f80-b246-11eb-8e53-b3a5f4c79126.png">)
+
+![](../../images/screens/newuxui/update.png?style=center-img)
 
 In this modal, a user has the ability to:
 

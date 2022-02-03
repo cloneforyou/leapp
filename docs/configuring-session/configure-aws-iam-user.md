@@ -17,8 +17,8 @@ A IAM User in AWS consists of a name and a set of long-term credentials. Leapp n
 | `ACCESS KEY ID`     | Your long-term Access Key. It will be used to generate a short-term set of credentials. Don't disclose it to anyone. |
 | `SECRET ACCESS KEY` | Your long-term Secret Key. It will be used to generate a short-term set of credentials. Don't disclose it to anyone. |
 
-![](../../images/screens/aws-iam-user.png?style=center-img "Add AWS IAM User Screen")
+![Add AWS IAM User Screen](../../images/screens/newuxui/aws-iam-user.png)
 
 ## Video Tutorial
 
-![](../../videos/User.gif?style=center-img)
+![](../../videos/newuxui/User.gif?style=center-img)

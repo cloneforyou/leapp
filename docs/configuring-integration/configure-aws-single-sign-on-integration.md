@@ -15,8 +15,8 @@ After logging in the first-time, Leapp will map all your roles and users into Se
 | `AWS SSO URL`       | **The portal URL to begin the authentication flow.** It's usually in the form `d-xxxxxxxxxx.awsapps.com/start`. |
 | `REGION`            | **The region on which AWS SSO is administered and configured.** This is NOT where your generated credentials will be valid, it's only used for login. |
 
-![](../../images/screens/aws-sso.png?style=center-img 'Add AWS SSO Screen')
+![](../../images/screens/newuxui/aws-sso.png?style=center-img 'Add AWS SSO Screen')
 
 ## Video Tutorial
 
-![](../../videos/sso.gif?style=center-img)
+![](../../videos/newuxui/sso.gif?style=center-img)

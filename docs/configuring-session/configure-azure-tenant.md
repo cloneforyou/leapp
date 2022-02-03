@@ -19,7 +19,7 @@ An Azure Tenant consists of a name and a set of long-term credentials.
 
 
 
-![](../../images/screens/azure-tenant.png?style=center-img "Add Azure Tenant Screen")
+![](../../images/screens/newuxui/azure-tenant.png?style=center-img "Add Azure Tenant Screen")
 
 ## Video Tutorial
 

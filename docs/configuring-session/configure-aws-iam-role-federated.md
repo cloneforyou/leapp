@@ -27,9 +27,8 @@ We currently support only SAML 2.0 federation.
 | `SAML 2.0 URL`             | Your SAML URL interface to start the authentication flow to log in your Identity provider.  |
 | `AWS IDENTIY PROVIDER ARN` | Your Identity Provider ID in AWS. You can find it in IAM section Identity Providers.|
 
-![](../../images/screens/aws-iam-role-federated.png?style=center-img "Add AWS IAM Role Federated Screen")
+![](../../images/screens/newuxui/aws-iam-role-federated.png?style=center-img "Add AWS IAM Role Federated Screen")
 
 ## Video tutorial
 
-![AWS IAM Federated Role Access Use Case](../../videos/Federated.gif?style=center-img)
-
+![AWS IAM Federated Role Access Use Case](../../videos/newuxui/iam-federated-SLOWER-50fps.gif)
