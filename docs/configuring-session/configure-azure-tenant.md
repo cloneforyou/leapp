@@ -10,12 +10,12 @@ An Azure Tenant consists of a name and a set of long-term credentials.
 
 ## Fields
 
-| Field                      | Description                          |
-| ---------------------------| ------------------------------------ |
-| `ALIAS`                    | Your friendly session name in Leapp. Give it a meaningful name so it will be easier to search for it inside Leapp. |
-| `TENANT ID`                | A **tenant ID** identifies a tenant. You can have multiple clients on a given tenant database. |
-| `SUBSCRIPTION ID`          | The **subscription ID** is a unique alphanumeric string that identifies your Azure subscription. |
-| `LOCATION`                 | The Azure datacenters are located around the world in strategic places that best meets the customer demands. These areas are known as Azure locations. Specific services requires the user to select a specific location.|
+| Field             | Description                          |
+|-------------------| ------------------------------------ |
+| `SESSION ALIAS`   | Your friendly session name in Leapp. Give it a meaningful name so it will be easier to search for it inside Leapp. |
+| `TENANT ID`       | A **tenant ID** identifies a tenant. You can have multiple clients on a given tenant database. |
+| `SUBSCRIPTION ID` | The **subscription ID** is a unique alphanumeric string that identifies your Azure subscription. |
+| `LOCATION`        | The Azure datacenters are located around the world in strategic places that best meets the customer demands. These areas are known as Azure locations. Specific services requires the user to select a specific location.|
 
 
 

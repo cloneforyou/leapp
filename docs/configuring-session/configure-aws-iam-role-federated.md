@@ -19,13 +19,15 @@ We currently support only SAML 2.0 federation.
 
 ## Fields
 
-| Field                      | Description                          |
-| -------------------------- | ------------------------------------ |
-| `ALIAS`                    | Your friendly session name in Leapp. Give it a meaningful name so it will be easier to search for it inside Leapp. |
+| Field                      | Description                                                                                                              |
+|----------------------------|--------------------------------------------------------------------------------------------------------------------------|
+| `SESSION ALIAS`            | Your friendly session name in Leapp. Give it a meaningful name so it will be easier to search for it inside Leapp.       |
 | `NAMED PROFILE`            | Your friendly session name in the AWS credential file. You will be able to reference from the AWS CLI with the `--name`. |
-| `REGION`                   | Your default region of choice. Select the one which you use the most for this Session. |
-| `SAML 2.0 URL`             | Your SAML URL interface to start the authentication flow to log in your Identity provider.  |
-| `AWS IDENTIY PROVIDER ARN` | Your Identity Provider ID in AWS. You can find it in IAM section Identity Providers.|
+| `REGION`                   | Your default region of choice. Select the one which you use the most for this Session.                                   |
+| `SAML 2.0 URL`             | Your SAML URL interface to start the authentication flow to log in your Identity provider.                               |
+| `AWS IDENTIY PROVIDER ARN` | Your Identity Provider ID in AWS. You can find it in IAM section Identity Providers.                                     |
+| `ROLE ARN`                 | Your IAM Role unique ID. The active Session will refer to this Role.                                     |
+
 
 ![](../../images/screens/newuxui/aws-iam-role-federated.png?style=center-img "Add AWS IAM Role Federated Screen")
 

@@ -18,4 +18,4 @@ In the future Leapp will only use the default browser to authenticate. Right now
 Every key stored by Leapp in the vault is named Leapp. The account name shows the description of the element saved by our software.
 
 ## Where do I find Leapp's logs?
-Head to the [Application data section].
+Head to the [Application data section](app-data.md).

@@ -8,17 +8,15 @@ A IAM User in AWS consists of a name and a set of long-term credentials. Leapp n
 
 ## Fields
 
-| Field               | Description                          |
-| --------------------| ------------------------------------ |
-| `ALIAS`             | Your friendly session name in Leapp. Give it a meaningful name so it will be easier to search for it inside Leapp. |
-| `NAMED PROFILE`     | Your friendly session name in the AWS credential file. You will be able to reference from the AWS CLI with the `--name`. |
-| `REGION`            | Your default region of choice. Select the one which you use the most for this Session. |
-| `MFA DEVICE ARN`    | Your MFA device ID to set up multi-factor authentication. See below how to achieve that. |
-| `ACCESS KEY ID`     | Your long-term Access Key. It will be used to generate a short-term set of credentials. Don't disclose it to anyone. |
+| Field           | Description                          |
+|-----------------| ------------------------------------ |
+| `SESSION ALIAS` | Your friendly session name in Leapp. Give it a meaningful name so it will be easier to search for it inside Leapp. |
+| `NAMED PROFILE` | Your friendly session name in the AWS credential file. You will be able to reference from the AWS CLI with the `--name`. |
+| `REGION`        | Your default region of choice. Select the one which you use the most for this Session. |
+| `MFA DEVICE`    | Your MFA device ID to set up multi-factor authentication. See below how to achieve that. |
+| `ACCESS KEY ID` | Your long-term Access Key. It will be used to generate a short-term set of credentials. Don't disclose it to anyone. |
 | `SECRET ACCESS KEY` | Your long-term Secret Key. It will be used to generate a short-term set of credentials. Don't disclose it to anyone. |
-
 ![Add AWS IAM User Screen](../../images/screens/newuxui/aws-iam-user.png)
-
 ## Video Tutorial
 
 ![](../../videos/newuxui/User.gif?style=center-img)

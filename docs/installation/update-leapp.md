@@ -12,8 +12,8 @@ In this modal, a user has the ability to:
 === "Remind me later"
     
     Leapp will shut down the modal, notify the user that a new update
-    is available by changing the Tray icon (adding a red dot) 
-    <img width="55" alt="Screenshot_2021-05-04_at_10 28 21 (1)" src="https://user-images.githubusercontent.com/9497292/117785141-97d87e00-b244-11eb-83e7-c39b8f771314.png">. 
+    is available by changing the Dock or Tray icon (adding a notification dot) 
+    <img width="55" alt="Screenshot_2021-05-04_at_10 28 21 (1)" src="https://user-images.githubusercontent.com/9497292/152328456-9fa51c95-d675-4b71-bd95-85c56b290843.png">. 
     Now users will not be bothered anymore until the next release is available. 
     This option is **suitable for users that want to stick to a specific version**. 
     Note that you can do this for every version and maintain the one you prefer.

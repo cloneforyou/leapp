@@ -12,8 +12,8 @@ Named Profiles can be created in **3 ways**:
 
 === "Option Panel"
 
-    Click on the hamburger icon and go to **Options**. 
-    Find the **Named profiles** tab, and click on the plus icon.
+    Click on the gear icon <img width="24" alt="Screenshot 2022-02-03 at 15 22 34" src="https://user-images.githubusercontent.com/9497292/152361141-75b5edec-f68f-47af-9a72-fd189706cb2a.png"> and go to **Options**. 
+    Find the **Profiles** tab, and click on the plus icon.
 
 === "When creating a new Session"
 
@@ -21,8 +21,9 @@ Named Profiles can be created in **3 ways**:
 
 === "Edit Profile in Contextual Menu"
 
-    Click on the kebab icon and select **edit profile** an option to select or add a new profile will be available.
-
+    Right-click on a session and select **Change** then **Named Profile**: an option to select or add a new profile will be available.
+    <br><br>
+    <img width="560" alt="Screenshot 2022-02-03 at 15 25 43" src="https://user-images.githubusercontent.com/9497292/152361872-0f52d40b-7c02-4dce-999c-c1bd2db517af.png">
 
 !!! info
 
@@ -42,13 +43,9 @@ Named profiles can be managed from the option page.
 
 Here you can add or edit a new named profile, you can also remove unwanted named profiles. When removing a named profile, Leapp will give you a hint on modified sessions, and those sessions will be reverted to default named profile.
 
-The input form can be used for adding or editing a named profile: when empty you can use it to add a new named profile. When selecting the
+The input form can be used for adding or editing a named profile: when empty you can use it to add a new named profile. When selecting the <img width="32" alt="Screenshot 2022-02-03 at 15 32 11" src="https://user-images.githubusercontent.com/9497292/152363026-6b933ce9-6ad1-4ae6-a6db-eefa5769764e.png"> button, the input field will be filled and you can change the name of the named profile associated with all sessions already linked to that profile.
 
-
-(edit) button, the input field will be filled and you can change the name of the named profile associated with all sessions already linked to that profile.
-Session Options
 A named profile can also be changed directly from an AWS session element in the main list.
-
 
 There you can add or select a new named profile the same way you would from the add session form.
 
