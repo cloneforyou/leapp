@@ -17,21 +17,22 @@
   <form [formGroup]="filterForm">
 
     <div class="main-bar">
-      <button class="icon-button show-in-taskbar-only" (click)="false;" tooltip="Refresh all Integrations"><i class="moon-Refresh"></i></button>
+      <button class="icon-button show-in-taskbar-only" (click)="false;" matTooltip="Refresh all Integrations"><i class="moon-Refresh"></i></button>
 
-      <button class="icon-button line-start hide-in-taskbar" (click)="showCreateDialog();" tooltip="Add a new Session Strategy"><i class="moon-Add"></i></button>
+      <button class="icon-button line-start hide-in-taskbar" (click)="showCreateDialog();" matTooltip="Add a new Session Strategy"><i class="moon-Add"></i></button>
 
-      <button class="icon-button hide-in-taskbar filtering {{filterExtended ? 'toggled-filter' : ''}}" (click)="toggleFilters();" tooltip="Filter the session list"><i class="moon-Filter"></i></button>
+      <button class="icon-button hide-in-taskbar filtering {{filterExtended ? 'toggled-filter' : ''}}" (click)="toggleFilters();" matTooltip="Filter the session list"><i class="moon-Filter"></i></button>
 
       <div class="form-control-input-icon">
         <input formControlName="searchFilter" type="text" class="form-control search-bar" placeholder="Search session" />
         <i class="moon-Search"></i>
       </div>
 
-      <button class="icon-button hide-in-taskbar" (click)="syncAll();" tooltip="Refresh all Strategies"><i class="moon-Refresh"></i></button>
+      <button class="icon-button hide-in-taskbar" (click)="syncAll();" matTooltip="Refresh all Strategies"><i class="moon-Refresh"></i></button>
 
       <div class="line-end">
-        <button class="icon-button" (click)="showOptionDialog();" tooltip="Show Leapp's options"><i class="moon-Settings"></i></button>
+        <button class="icon-button" (click)="showOptionDialog();"
+                matTooltip="Show Leapp Options"><i class="moon-Settings"></i></button>
       </div>
 
       <div class="window-buttons">

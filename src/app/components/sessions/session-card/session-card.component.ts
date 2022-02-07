@@ -141,7 +141,7 @@ export class SessionCardComponent implements OnInit {
    * Start the selected sessions
    */
   startSession() {
-    this.sessionService.start(this.session.sessionId).then(_ => {});
+    this.sessionService.start(this.session.sessionId).then(_ => {this.clearOptionIds();});
     this.logSessionData(this.session, `Starting Session`);
     this.trigger.closeMenu();
   }

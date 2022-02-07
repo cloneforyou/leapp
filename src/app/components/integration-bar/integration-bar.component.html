@@ -87,7 +87,7 @@
 
     <div mat-line>
       <img src="assets/images/aws.png" />
-      <section class="status" tooltip="{{isOnline(awsSsoConfiguration) ? 'Expiring ' + remainingHours(awsSsoConfiguration) : 'Offline'}}">
+      <section class="status" matTooltip="{{isOnline(awsSsoConfiguration) ? 'Expiring ' + remainingHours(awsSsoConfiguration) : 'Offline'}}">
           <ng-container *ngIf="isOnline(awsSsoConfiguration)">
             <b class="green-dot"></b>
           </ng-container>

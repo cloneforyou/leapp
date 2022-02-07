@@ -34,6 +34,7 @@ import { SegmentDialogComponent } from './dialogs/segment-dialog/segment-dialog.
 import { ColumnDialogComponent } from './dialogs/column-dialog/column-dialog.component';
 import { LeappSelectComponent } from './leapp-select/leapp-select.component';
 import { IntegrationBarComponent } from './integration-bar/integration-bar.component';
+import {MatTooltipModule} from "@angular/material/tooltip";
 
 @NgModule({
   declarations: [
@@ -74,7 +75,8 @@ import { IntegrationBarComponent } from './integration-bar/integration-bar.compo
     MatMenuModule,
     MatListModule,
     MatExpansionModule,
-    MatButtonToggleModule
+    MatButtonToggleModule,
+    MatTooltipModule
   ],
   exports: [ConfirmationDialogComponent, InputDialogComponent, CommandBarComponent, SideBarComponent, SessionsComponent]
 })

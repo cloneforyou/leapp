@@ -176,7 +176,8 @@ i.fa-spin.status-item {
 }
 i.hover-item {
   font-size: 20px;
-  padding-left: 42%;
+  padding-left: 41%;
+  padding-top: 6px;
 }
 
 td.active {
@@ -315,4 +316,10 @@ td:nth-child(4) {
 .azure-opt-bar .opt-bar-middle-section {
   position: relative;
   left: 1px;
+}
+
+img.moon-stop-outline {
+  width:23px;
+  margin-left: -2px;
+  margin-bottom: 2px;
 }
