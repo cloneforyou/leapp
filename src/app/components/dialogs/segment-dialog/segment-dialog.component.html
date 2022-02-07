@@ -21,7 +21,7 @@
   <small>This segment will show in your sidebar.</small>
   <br>
   <br>
-  <button (click)="saveSegment()">Save Segment</button>
+  <button (click)="saveSegment()" [disabled]="!formValid()" class="{{formValid() ? '': 'mat-button-disabled'}}">Save Segment</button>
   <a (click)="closeModal()">Cancel</a>
 
 </form>

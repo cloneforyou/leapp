@@ -36,6 +36,7 @@
                          [bindLabel]="'label'"
                          [bindValue]="'value'"
                          (change)="setAccessStrategy(provider);"
+                         [clearable]="false"
                          [items]="[{value: eSessionType.awsIamRoleFederated, label: 'AWS IAM Role Federated'}, {value: eSessionType.awsIamUser, label: 'AWS IAM User'}, {value: eSessionType.awsIamRoleChained, label: 'AWS IAM Role Chained'}]"
                          placeholder="Select Session Strategy"
                          [addTag]="false"
@@ -88,7 +89,7 @@
           <!-- ================================================================== -->
           <div class="form-field">
             <label>Region</label>
-            <ng-select formControlName="awsRegion" bindLabel="region" bindValue="region" [items]="regions" [(ngModel)]="selectedRegion" dropdownPosition="top"></ng-select>
+            <ng-select formControlName="awsRegion" bindLabel="region" bindValue="region" [clearable]="false" [items]="regions" [(ngModel)]="selectedRegion" dropdownPosition="top"></ng-select>
           </div>
 
           <!-- ================================================================== -->
@@ -187,7 +188,7 @@
 
           <div class="form-field">
             <label>Location</label>
-            <ng-select formControlName="azureLocation" bindLabel="location" bindValue="location" [items]="locations" [(ngModel)]="selectedLocation" dropdownPosition="top"></ng-select>
+            <ng-select formControlName="azureLocation" bindLabel="location" bindValue="location" [clearable]="false" [items]="locations" [(ngModel)]="selectedLocation" dropdownPosition="top"></ng-select>
           </div>
         </ng-container>
       </div>

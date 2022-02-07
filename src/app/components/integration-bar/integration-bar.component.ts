@@ -307,4 +307,10 @@ export class IntegrationBarComponent implements OnInit, OnDestroy {
       { addSuffix: true }
     );
   }
+
+  formValid() {
+    return this.form.get('alias').valid &&
+      this.form.get('portalUrl').valid &&
+      this.form.get('awsRegion').value !== null;
+  }
 }

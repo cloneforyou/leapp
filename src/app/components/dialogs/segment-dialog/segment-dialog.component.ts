@@ -2,7 +2,7 @@ import {Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {AppService} from '../../../services/app.service';
 import {LoggingService} from '../../../services/logging.service';
 import {WorkspaceService} from '../../../services/workspace.service';
-import {FormControl, FormGroup} from '@angular/forms';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
 import Segment from '../../../models/Segment';
 import {globalFilterGroup} from '../../command-bar/command-bar.component';
 import {NgSelectComponent} from '@ng-select/ng-select';
@@ -19,7 +19,7 @@ export class SegmentDialogComponent implements OnInit, OnDestroy {
   ngSelectComponent: NgSelectComponent;
 
   form = new FormGroup({
-    segmentName: new FormControl('')
+    segmentName: new FormControl('', [Validators.required])
   });
 
   selectedSegment;
@@ -79,5 +79,9 @@ export class SegmentDialogComponent implements OnInit, OnDestroy {
 
   setTemporaryName($event: any) {
     this.temporaryName = $event.target.value;
+  }
+
+  formValid() {
+    return this.form.get('segmentName').valid;
   }
 }
