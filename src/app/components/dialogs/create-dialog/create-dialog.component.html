@@ -143,12 +143,12 @@
           <ng-container *ngIf="sessionType === eSessionType.awsIamUser">
             <div class="form-field">
               <label>Access Key ID</label>
-              <input formControlName="accessKey" type="text" class="form-control" placeholder="Access Key ID *">
+              <input formControlName="accessKey" type="password" class="form-control" placeholder="Access Key ID *">
               <small class="text-error" *ngIf="(form.controls['accessKey'].dirty || form.controls['accessKey'].touched) && form.controls['accessKey'].errors">Insert the AWS Access Key ID</small>
             </div>
             <div class="form-field">
               <label>Secret Access Key</label>
-              <input formControlName="secretKey" type="text" class="form-control" placeholder="Secret Access Key *">
+              <input formControlName="secretKey" type="password" class="form-control" placeholder="Secret Access Key *">
               <small class="text-error" *ngIf="(form.controls['secretKey'].dirty || form.controls['secretKey'].touched) && form.controls['secretKey'].errors">Insert the AWS Secret Access Key</small>
             </div>
           </ng-container>
@@ -175,13 +175,13 @@
         <ng-container *ngIf="sessionType === eSessionType.azure">
           <div class="form-field">
             <label>Subscription Id</label>
-            <input formControlName="subscriptionId" type="text" class="form-control" placeholder="Subscription Id *">
+            <input formControlName="subscriptionId" type="password" class="form-control" placeholder="Subscription Id *">
             <small class="text-error" *ngIf="(form.controls['subscriptionId'].dirty || form.controls['subscriptionId'].touched) && form.controls['subscriptionId'].errors">Insert the Subscription Id</small>
           </div>
 
           <div class="form-field">
             <label>Tenant Id</label>
-            <input formControlName="tenantId" type="text" class="form-control" placeholder="Tenant Id *">
+            <input formControlName="tenantId" type="password" class="form-control" placeholder="Tenant Id *">
             <small class="text-error" *ngIf="(form.controls['tenantId'].dirty || form.controls['tenantId'].touched) && form.controls['tenantId'].errors">Insert the Tenant Id</small>
           </div>
 

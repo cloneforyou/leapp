@@ -11,8 +11,8 @@ Role chaining occurs when you use a role to assume a second role through the AWS
 
 | Field               | Description                          |
 |---------------------| ------------------------------------ |
-| `SESSION ALIAS`     | Your friendly session name in Leapp. Give it a meaningful name so it will be easier to search for it inside Leapp. |
-| `NAMED PROFILE`     | Your friendly session name in the AWS credential file. You will be able to reference from the AWS CLI with the `--name`. |
+| `SESSION ALIAS`     | Your friendly session name in Leapp. Give it a meaningful name so it will be easier to find inside Leapp. |
+| `NAMED PROFILE`     | Your friendly session name in the AWS credential file. You will be able to reference it from the AWS CLI with `--name`. |
 | `REGION`            | Your default region of choice. Select the one which you use the most for this Session. |
 | `ROLE ARN`          | Your IAM Role unique ID. The active Session will refer to this Role. |
 | `ROLE SESSION NAME` | Your session name. You can query and search this on AWS Cloudtrail or any other linked audit service to find out what action were performed by the linked Identity. |

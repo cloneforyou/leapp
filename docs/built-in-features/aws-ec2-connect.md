@@ -1,4 +1,4 @@
-You can directly connect from Leapp to an AWS EC2 instance through AWS System Manager (AWS SSM).
+You can directly connect to an AWS EC2 instance from Leapp through AWS System Manager (AWS SSM).
 
 !!! Info
 
@@ -6,15 +6,15 @@ You can directly connect from Leapp to an AWS EC2 instance through AWS System Ma
 
 ![](../../images/screens/newuxui/aws-ssm.png?style=center-img)
 
-To connect properly follow these steps:
+To correctly connect follow these steps:
 
 1. Right-click on a suitable AWS session to open the contextual menu
 2. Click on View SSM sessions
-3. Select an AWS region in which your instance is located
+3. Select the AWS region in which your instance is located
 4. Wait for Leapp to load your instances
 5. Select the instance and click connect
 6. Wait for the terminal to open
-7. Focus the terminal and write ```/bin/bash```; press  ++return++  and you'll be inside your Instance's terminal
+7. Focus the terminal window and write ```/bin/bash```; press  ++return++  and you'll be inside the terminal of your Instance
 
 <video width="100%" autoplay="true" loop="true" control="false"> <source src="../../videos/newuxui/ssm.mp4" type="video/mp4"> </video>
 

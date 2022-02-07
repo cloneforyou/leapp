@@ -129,3 +129,10 @@ details p, .admonition p {
   display:block!important;
   margin: -10px auto -50px!important;
 }
+
+.update-image {
+  width:80%!important;
+  display:block!important;
+  margin: 0 auto!important;
+  margin-bottom: 20px!important;
+}

@@ -178,6 +178,7 @@ export class CreateDialogComponent implements OnInit {
         result = this.form.get('name').valid &&
                  this.selectedProfile &&
                  this.form.get('awsRegion').valid &&
+                 this.form.get('awsRegion').value !== null &&
                  this.form.get('roleArn').valid &&
                  this.selectedIdpUrl &&
                  this.form.get('idpArn').valid;
@@ -186,6 +187,7 @@ export class CreateDialogComponent implements OnInit {
         result = this.form.get('name').valid &&
                  this.selectedProfile &&
                  this.form.get('awsRegion').valid &&
+                 this.form.get('awsRegion').value !== null &&
                  this.form.get('roleArn').valid &&
                  this.form.get('roleSessionName').valid &&
                  this.selectedSession;
@@ -194,6 +196,7 @@ export class CreateDialogComponent implements OnInit {
         result = this.form.get('name').valid &&
                  this.selectedProfile &&
                  this.form.get('awsRegion').valid &&
+                 this.form.get('awsRegion').value !== null &&
                  this.form.get('mfaDevice').valid &&
                  this.form.get('accessKey').valid &&
                  this.form.get('secretKey').valid;
@@ -301,9 +304,6 @@ export class CreateDialogComponent implements OnInit {
    * @private
    */
   private createSession() {
-    console.log(this.selectedProfile);
-    console.log(this.selectedIdpUrl);
-
     if(this.formValid()) {
       switch (this.sessionType) {
         case (SessionType.awsIamRoleFederated):

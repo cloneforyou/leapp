@@ -42,9 +42,9 @@ nav:
       - 'FAQ': 'troubleshooting/faq.md'
 
 theme:
-  logo: images/logo.png
+  logo: images/leapp.png
   titles_only: true
-  favicon: images/favicon.ico
+  favicon: images/icon.ico
   name: material
   features:
     - navigation.instant

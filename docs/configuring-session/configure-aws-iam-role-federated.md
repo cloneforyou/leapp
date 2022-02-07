@@ -2,7 +2,7 @@ AWS Identity and Access Management (IAM) supports identity federation for delega
 
 These external identities can come from your corporate identity provider (such as Microsoft Active Directory or from the AWS Directory Service) or from a web identity provider (such as Amazon Cognito, Login with Amazon, Facebook, Google, or any OpenID Connect-compatible provider).
 
-We currently support only SAML 2.0 federation.
+We currently only support SAML 2.0 federation.
 
 !!! Info
     - Refer to [this guide](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-idp_saml.html) to provision your own federated roles.
@@ -21,10 +21,10 @@ We currently support only SAML 2.0 federation.
 
 | Field                      | Description                                                                                                              |
 |----------------------------|--------------------------------------------------------------------------------------------------------------------------|
-| `SESSION ALIAS`            | Your friendly session name in Leapp. Give it a meaningful name so it will be easier to search for it inside Leapp.       |
-| `NAMED PROFILE`            | Your friendly session name in the AWS credential file. You will be able to reference from the AWS CLI with the `--name`. |
+| `SESSION ALIAS`            | Your friendly session name in Leapp. Give it a meaningful name so it will be easier to find inside Leapp.       |
+| `NAMED PROFILE`            | Your friendly session name in the AWS credential file. You will be able to reference it from the AWS CLI with `--name`. |
 | `REGION`                   | Your default region of choice. Select the one which you use the most for this Session.                                   |
-| `SAML 2.0 URL`             | Your SAML URL interface to start the authentication flow to log in your Identity provider.                               |
+| `SAML 2.0 URL`             | Your SAML URL interface to start the authentication flow and log into your Identity provider.                               |
 | `AWS IDENTIY PROVIDER ARN` | Your Identity Provider ID in AWS. You can find it in IAM section Identity Providers.                                     |
 | `ROLE ARN`                 | Your IAM Role unique ID. The active Session will refer to this Role.                                     |
 
