@@ -142,7 +142,7 @@ export class OptionsDialogComponent implements OnInit, AfterViewInit {
             this.loggingService.logger('User have set a proxy url: the app must be restarted to update the configuration.', LoggerLevel.info, this);
             this.appService.restart();
           }
-        }, 'Restart', 'Cancel');
+        }, 'Restart', 'Cancel', true);
       } else {
         this.appService.closeModal();
         this.loggingService.logger('Option saved.', LoggerLevel.info, this, JSON.stringify(this.form.getRawValue(), null, 3));
@@ -223,7 +223,7 @@ export class OptionsDialogComponent implements OnInit, AfterViewInit {
 
         this.workspace = this.workspaceService.getWorkspace();
       }
-    }, 'Delete IdP URL', 'Cancel');
+    }, 'Delete IdP URL', 'Cancel', true);
   }
 
   async manageAwsProfile(id: string | number) {
@@ -297,6 +297,6 @@ export class OptionsDialogComponent implements OnInit, AfterViewInit {
 
         this.workspace = this.workspaceService.getWorkspace();
       }
-    }, 'Delete Profile', 'Cancel');
+    }, 'Delete Profile', 'Cancel', true);
   }
 }

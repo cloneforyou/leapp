@@ -347,9 +347,11 @@ export class AppService {
    * @param message - the message to show
    * @param callback - the callback for the ok button to launch
    */
-  confirmDialog(message: string, callback: any, confirmText?: string, cancelText?: string) {
-    for (let i = 1; i <= this.modalService.getModalsCount(); i++) {
-      this.modalService.hide(i);
+  confirmDialog(message: string, callback: any, confirmText?: string, cancelText?: string, isDoubleModal?: boolean) {
+    if(!isDoubleModal) {
+      for (let i = 1; i <= this.modalService.getModalsCount(); i++) {
+        this.modalService.hide(i);
+      }
     }
 
     this.getCurrentWindow().show();
@@ -365,9 +367,11 @@ export class AppService {
    * @param message - the message to show
    * @param callback - the callback for the ok button to launch
    */
-  inputDialog(title: string, placeholder: string, message: string, callback: any) {
-    for (let i = 1; i <= this.modalService.getModalsCount(); i++) {
-      this.modalService.hide(i);
+  inputDialog(title: string, placeholder: string, message: string, callback: any, isDoubleModal?: boolean) {
+    if(!isDoubleModal) {
+      for (let i = 1; i <= this.modalService.getModalsCount(); i++) {
+        this.modalService.hide(i);
+      }
     }
 
     this.getCurrentWindow().show();
