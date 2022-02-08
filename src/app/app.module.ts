@@ -19,26 +19,25 @@ import {ComponentsModule} from './components/components.module';
 
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    TrayMenuComponent
-  ],
-  imports: [
-    ComponentsModule,
-    MatSnackBarModule,
-    BrowserModule,
-    BrowserAnimationsModule,
-    AppRoutingModule,
-    HttpClientModule,
-    FormsModule,
-    ReactiveFormsModule,
-    NgSelectModule,
-    LayoutModule,
-    TooltipModule.forRoot(),
-    ModalModule.forRoot()
-  ],
-  entryComponents: [ConfirmationDialogComponent, InputDialogComponent],
-  providers: [{ provide: ErrorHandler, useClass: ErrorService}],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        TrayMenuComponent
+    ],
+    imports: [
+        ComponentsModule,
+        MatSnackBarModule,
+        BrowserModule,
+        BrowserAnimationsModule,
+        AppRoutingModule,
+        HttpClientModule,
+        FormsModule,
+        ReactiveFormsModule,
+        NgSelectModule,
+        LayoutModule,
+        TooltipModule.forRoot(),
+        ModalModule.forRoot()
+    ],
+    providers: [{ provide: ErrorHandler, useClass: ErrorService }],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }
