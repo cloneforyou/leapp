@@ -75,6 +75,7 @@ export class LeappSelectComponent implements AfterViewInit {
 
     this.items.push(newElement);
     this.items = [...this.items];
+    this.ngSelectComponent.select(newElement);
     this.selected.emit({ items: this.items, item: newElement });
   }
 

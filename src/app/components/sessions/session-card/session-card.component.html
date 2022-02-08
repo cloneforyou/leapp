@@ -51,7 +51,7 @@
 
   <button mat-menu-item [matMenuTriggerFor]="change">
     <i class="moon-Star"></i>
-    <span>&nbsp;&nbsp;&nbsp;Change</span>
+    <span>&nbsp;&nbsp;Change</span>
   </button>
 
   <button mat-menu-item (click)="ssmModalOpen($event, session);">
@@ -64,7 +64,7 @@
   <ng-container *ngIf="(session.type === eSessionType.awsIamRoleFederated || session.type === eSessionType.awsIamRoleChained || session.type === eSessionType.awsSsoRole)">
     <button mat-menu-item [matMenuTriggerFor]="copy">
       <i class="moon-Copy"></i>
-      <span>&nbsp;&nbsp;&nbsp;Copy</span>
+      <span>&nbsp;&nbsp;Copy</span>
     </button>
     <div class="divider"></div>
   </ng-container>

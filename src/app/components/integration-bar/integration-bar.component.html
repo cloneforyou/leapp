@@ -109,14 +109,14 @@
 <mat-menu #integrationMenu [hasBackdrop]="false" >
   <ng-template matMenuContent let-configuration="configuration">
     <button mat-menu-item (click)="gotoForm(2, configuration)" *ngIf="!loadingInBrowser">
-      <i class="moon-Edit"></i>&nbsp;
-      <span>Edit</span>
+      <i class="moon-Edit"></i>
+      <span> Edit</span>
     </button>
 
     <ng-container *ngIf="!logoutLoadings[configuration.id]">
       <button mat-menu-item (click)="logout(configuration.id)" *ngIf="isOnline(configuration)">
         <i class="moon-Close"></i>
-        <span>Logout</span>
+        <span> Logout</span>
       </button>
     </ng-container>
 
