@@ -32,3 +32,9 @@
   position: relative;
   top: 6px;
 }
+
+::ng-deep {
+  span.ng-option-label {
+    overflow: hidden;
+  }
+}
