@@ -636,3 +636,10 @@ button, a, input, i {
     }
   }
 }
+
+::ng-deep {
+.mat-tooltip {
+    font-size: 10px;
+    background-color: $text-black;
+  }
+}

@@ -260,7 +260,7 @@ export class CreateDialogComponent implements OnInit {
    */
   goToAwsSso() {
     this.appService.closeModal();
-    openIntegrationEvent.next(true);
+    setTimeout(() => { openIntegrationEvent.next(true) }, 100)
   }
 
   /**

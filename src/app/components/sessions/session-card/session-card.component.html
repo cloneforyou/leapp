@@ -201,8 +201,9 @@
       <div class="form-group">
         <div class="form-field">
           <div class="form-group">
-            <label>Select a region</label>
+            <label>Select a Region</label>
             <ng-select
+              [clearable]="false"
               bindLabel="{{session.type === eSessionType.azure ? 'location' : 'region'}}"
               bindValue="{{session.type === eSessionType.azure ? 'location' : 'region'}}"
               [items]="regionOrLocations"
@@ -213,7 +214,7 @@
       </div>
     </div>
     <br>
-    <button (click)="changeRegion()" [disabled]="!selectedDefaultRegion" [ngClass]="(!selectedDefaultRegion) ? 'btn-control disabled': 'btn-control'">Select</button>
+    <button (click)="changeRegion()" [disabled]="!selectedDefaultRegion" [ngClass]="(!selectedDefaultRegion) ? 'btn-control mat-button-disabled': 'btn-control'">Select</button>
     <a (click)="goBack()">Cancel</a>
 
   </div>
@@ -249,7 +250,7 @@
       </form>
     </div>
     <br>
-    <button type="button" (click)="changeProfile();" [disabled]="!selectedProfile" [ngClass]="(!selectedProfile) ? 'btn-control disabled': 'btn-control'">Save Profile</button>
+    <button type="button" (click)="changeProfile();" [disabled]="!selectedProfile" [ngClass]="(!selectedProfile) ? 'btn-control mat-button-disabled': 'btn-control'">Save Profile</button>
     <a (click)="goBack();">Cancel</a>
   </div>
 </ng-template>

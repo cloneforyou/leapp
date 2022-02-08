@@ -400,6 +400,7 @@ export class SessionCardComponent implements OnInit {
   changeProfileModalOpen(event) {
     event.preventDefault();
     event.stopPropagation();
+    this.profiles = this.workspaceService.getProfiles().map(el => ({value: el.id, label: el.name}));
     this.trigger.closeMenu();
     this.selectedProfile = null;
     this.modalRef = this.modalService.show(this.defaultProfileModalTemplate, { class: 'ssm-modal'});

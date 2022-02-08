@@ -266,7 +266,7 @@ export class OptionsDialogComponent implements OnInit, AfterViewInit {
     const sessions = this.awsSessionService.list().filter(sess => (sess as any).profileId === id);
 
     // Get only names for display
-    let sessionsNames = sessions.map(s => `<li><div class="removed-sessions"><b>${s.sessionName}</b> - <small>${(s as AwsIamRoleFederatedSession).roleArn ? (s as AwsIamRoleFederatedSession).roleArn.split('/')[1] : ''}</small></div></li>`);
+    let sessionsNames = sessions.map(s => `<li><div class="removed-sessions"><b>${s.sessionName}</b> - <small>${(s as AwsIamRoleFederatedSession).roleArn ? (s as AwsIamRoleFederatedSession).roleArn.split('/')[1] : 'No Role'}</small></div></li>`);
     if (sessionsNames.length === 0) {
       sessionsNames = ['<li><b>no sessions</b></li>'];
     }
