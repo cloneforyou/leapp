@@ -11,7 +11,7 @@ export class BrowserHandler {
   public async getBrowser(): Promise<puppeteer.Browser> {
     if (!this.browser) {
       this.browser = await puppeteer.launch({headless: this.headlessMode})
-      this.browser.on('disconnected', this.getBrowser)
+     // this.browser.on('disconnected', this.getBrowser)
     }
 
     return this.browser
@@ -20,6 +20,7 @@ export class BrowserHandler {
   public async killBrowser(): Promise<void> {
     if (this.browser && this.browser.process() != null) {
       this.browser.removeAllListeners()
+      this.browser.disconnect()
       this.browser.process()?.kill('SIGINT')
     }
   }

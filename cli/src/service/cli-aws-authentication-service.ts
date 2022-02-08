@@ -1,16 +1,26 @@
 import { IAwsAuthenticationService } from '@noovolari/leapp-core/interfaces/i-aws-authentication.service'
-import { BrowserHandler, DEFAULT_INTERCEPT_RESOLUTION_PRIORITY } from './browser-handler'
+import puppeteer from 'puppeteer'
+
 
 export class CliAwsAuthenticationService implements IAwsAuthenticationService {
-  private browserHandler: BrowserHandler
+
+
+  private browser: puppeteer.Browser
+  private browser2: puppeteer.Browser
+ // private browserEndpoint: any
+
 
   async needAuthentication(idpUrl: string): Promise<boolean> {
     return new Promise(async (resolve, reject) => {
 
-      this.browserHandler = new BrowserHandler(true)
-      const page = await (await this.browserHandler.getBrowser()).newPage()
+      // this.browserHandler = new BrowserHandler(false)
+      // const browser = await this.browserHandler.getBrowser()
+      this.browser = await puppeteer.launch({headless: true})
+     // this.browserEndpoint = this.browser.wsEndpoint()
+      const page = await this.browser.newPage()
       await page.setDefaultNavigationTimeout(0)
       await page.setRequestInterception(true)
+
       page.on('request', request => {
         const requestUrl = request.url().toString()
         if (request.isInterceptResolutionHandled()) {
@@ -18,43 +28,73 @@ export class CliAwsAuthenticationService implements IAwsAuthenticationService {
         }
 
         if (this.isRequestToIntercept(requestUrl)) {
+          request.abort();
           resolve(requestUrl.indexOf('https://signin.aws.amazon.com/saml') === -1)
         } else {
-          request.continue(undefined, DEFAULT_INTERCEPT_RESOLUTION_PRIORITY)
+          request.continue()
         }
       })
 
-      await page.goto(idpUrl)
+      try {
+        await page.goto(idpUrl)
+      }catch (e) {
+
+      }
+
+
     })
   }
 
   public async awsSignIn(idpUrl: string, needToAuthenticate: boolean): Promise<any> {
-    return new Promise(async (resolve, reject) => {
 
-      this.browserHandler = new BrowserHandler(!needToAuthenticate)
-      const page = await (await this.browserHandler.getBrowser()).newPage()
+    return new Promise(async (resolve, reject) => {
+      // this.browserHandler = new BrowserHandler(!needToAuthenticate)
+      //const browserWSEndpoint = this.browserEndpoint
+       this.browser2 = await puppeteer.launch({headless: !needToAuthenticate})
+      const page = await this.browser2.newPage()
       await page.setDefaultNavigationTimeout(0)
       await page.setRequestInterception(true)
+
       page.on('request', request => {
         const requestUrl = request.url().toString()
         if (request.isInterceptResolutionHandled()) {
+
           reject('request unexpectedly already handled')
         }
 
         if (requestUrl.indexOf('https://signin.aws.amazon.com/saml') !== -1) {
+          request.abort();
           resolve({uploadData: [{bytes: {toString: () => request.postData()}}]})
         } else {
-          request.continue(undefined, DEFAULT_INTERCEPT_RESOLUTION_PRIORITY)
+          request.continue()
         }
       })
 
+      console.log('before goto')
       await page.goto(idpUrl)
     })
   }
 
-  async authenticationPhaseEnded(): Promise<void> {
-    if (this.browserHandler){
-      await this.browserHandler.killBrowser()
+  async closePage(number :number): Promise<void> {
+    if (this.browser) {
+      const pages = await this.browser.pages()
+
+      for (let i =0; i<number;i++){
+        pages[i].removeAllListeners()
+       await pages[i].close()
+      }
+    }
+  }
+  async closeBrowser():Promise<void>{
+    if(this.browser){
+      this.browser.removeAllListeners()
+      this.browser.disconnect()
+     await this.browser.close()
+    }
+    if(this.browser2){
+      this.browser2.removeAllListeners()
+      this.browser2.disconnect()
+      await this.browser2.close()
     }
   }
 

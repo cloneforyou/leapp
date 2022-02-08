@@ -3,5 +3,7 @@ export interface IAwsAuthenticationService {
 
   awsSignIn(idpUrl: string, needToAuthenticate: boolean): Promise<any>
 
-  authenticationPhaseEnded(): Promise<void>
+  closePage(number: number): Promise<void>
+
+  closeBrowser(): Promise<void>
 }
