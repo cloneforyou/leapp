@@ -194,7 +194,6 @@
     "fs-extra": "~9.1.0",
     "fs-web": "1.0.1",
     "github-url-to-object": "^4.0.6",
-    "global-tunnel": "~1.2.0",
     "http-proxy-agent": "4.0.1",
     "https-proxy-agent": "5.0.0",
     "i18next": "^21.5.4",
@@ -234,7 +233,7 @@
     "zone.js": "~0.11.4"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "^12.2.7",
+    "@angular-devkit/build-angular": "^13.2.2",
     "@angular-eslint/builder": "12.5.0",
     "@angular-eslint/eslint-plugin": "4.2.0",
     "@angular-eslint/eslint-plugin-template": "4.2.0",
