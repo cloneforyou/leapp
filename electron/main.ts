@@ -233,6 +233,9 @@ const generateMainWindow = () => {
       }
     });
   }
+  if (process.platform === 'win32') {
+    app.setAppUserModelId('Leapp');
+  }
 };
 
 // =============================== //
