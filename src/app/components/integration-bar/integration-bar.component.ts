@@ -15,6 +15,7 @@ import {formatDistance, isPast} from 'date-fns';
 import {BsModalRef, BsModalService} from 'ngx-bootstrap/modal';
 import {BehaviorSubject} from 'rxjs';
 import {MatMenuTrigger} from '@angular/material/menu';
+import {sidebarHighlight} from "../side-bar/side-bar.component";
 
 export interface SelectedIntegration {
   id: string;
@@ -24,6 +25,7 @@ export interface SelectedIntegration {
 export const integrationsFilter = new BehaviorSubject<AwsSsoIntegration[]>([]);
 export const openIntegrationEvent = new BehaviorSubject<boolean>(false);
 export const syncAllEvent = new BehaviorSubject<boolean>(false);
+export const integrationHighlight = new BehaviorSubject<number>(-1);
 
 @Component({
   selector: 'app-integration-bar',
@@ -96,6 +98,12 @@ export class IntegrationBarComponent implements OnInit, OnDestroy {
       }
     });
 
+    integrationHighlight.subscribe(value => {
+      //set highlighted row for integration
+      this.selectedIntegrations.forEach(i => i.selected = false);
+    });
+    integrationHighlight.next(-1);
+
     this.awsSsoOidcService.listeners.push(this);
     this.loadingInBrowser = false;
     this.loadingInApp = false;
@@ -137,6 +145,8 @@ export class IntegrationBarComponent implements OnInit, OnDestroy {
     event.stopPropagation();
 
     this.selectedIntegrations.forEach(s => s.selected = false);
+
+    sidebarHighlight.next({showAll: false, showPinned: false});
 
     const selectedIndex = this.selectedIntegrations.findIndex(s => s.id === awsSsoConfiguration.id);
     this.selectedIntegrations[selectedIndex].selected = true;
