@@ -139,20 +139,20 @@ export class TrayMenuComponent implements OnInit, OnDestroy {
     }
     if (!this.currentTray) {
       this.currentTray = new (this.appService.getTray())(__dirname + `/assets/images/${normalIcon}.png`);
-      if(this.appService.detectOs() !== Constants.windows) {
+      if(this.appService.detectOs() !== Constants.windows && this.appService.detectOs() !== Constants.linux) {
         this.appService.getApp().dock.setBadge('');
       }
     }
     if (this.updaterService.getSavedVersionComparison() && this.updaterService.isReady()) {
       voices.push({type: 'separator'});
       voices.push({label: 'Check for Updates...', type: 'normal', click: () => this.updaterService.updateDialog()});
-      if(this.appService.detectOs() !== Constants.windows) {
+      if(this.appService.detectOs() !== Constants.windows && this.appService.detectOs() !== Constants.linux) {
         this.appService.getApp().dock.setBadge('·');
       }
     }
     voices = voices.concat(extraInfo);
     const contextMenu = this.appService.getMenu().buildFromTemplate(voices);
-    if(this.appService.detectOs() !== Constants.windows) {
+    if(this.appService.detectOs() !== Constants.windows && this.appService.detectOs() !== Constants.linux) {
       this.currentTray.setToolTip('Leapp');
     }
     this.currentTray.setContextMenu(contextMenu);
