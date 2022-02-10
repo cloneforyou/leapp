@@ -47,8 +47,6 @@ export class SideBarComponent implements OnInit, OnDestroy {
   modalRef: BsModalRef;
 
   constructor(private workspaceService: WorkspaceService, private bsModalService: BsModalService) {
-    //this.showAll = true;
-    //this.showPinned = false;
   }
 
   ngOnInit(): void {
@@ -71,7 +69,6 @@ export class SideBarComponent implements OnInit, OnDestroy {
   resetFilters() {
     console.log('in RESET filters');
     sidebarHighlight.next({showAll: true, showPinned: false, selectedSegment: -1});
-    //this.highlightSelectedRow(true, false)
     globalFilteredSessions.next(this.workspaceService.sessions);
     globalHasFilter.next(false);
     globalResetFilter.next(true);
@@ -79,7 +76,6 @@ export class SideBarComponent implements OnInit, OnDestroy {
 
   showOnlyPinned() {
     sidebarHighlight.next({showAll: false, showPinned: true, selectedSegment: -1});
-    //this.highlightSelectedRow(false, true);
     globalFilteredSessions.next(this.workspaceService.sessions.filter((s: Session) => this.workspaceService.getWorkspace().pinned.indexOf(s.sessionId) !== -1));
   }
 
@@ -89,7 +85,6 @@ export class SideBarComponent implements OnInit, OnDestroy {
 
     const selectedIndex = this.selectedS.findIndex(s => s.name === segment.name);
     sidebarHighlight.next({showAll: false, showPinned: false, selectedSegment: selectedIndex});
-    //this.highlightSelectedRow(false, false, selectedIndex);
     globalSegmentFilter.next(JSON.parse(JSON.stringify(segment)));
   }
 
@@ -125,11 +120,9 @@ export class SideBarComponent implements OnInit, OnDestroy {
   }
 
   highlightSelectedRow(showAll: boolean, showPinned: boolean, selectedSegmentIndex?: number) {
-    console.log('ciaoooooo! lmao');
     this.showAll = showAll;
     this.showPinned = showPinned;
     this.selectedS.forEach(s => s.selected = false);
-    console.log('ciaoooooo! e 2.');
     if(selectedSegmentIndex >= 0) {
       this.selectedS[selectedSegmentIndex].selected = true;
     }
