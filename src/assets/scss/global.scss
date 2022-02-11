@@ -655,3 +655,8 @@ button, a, input, i {
     background: rgba(41, 32, 68, 0.5);
   }
 }
+
+.fa-spinner:before {
+  display: block;
+  margin-top: 1px;
+}
