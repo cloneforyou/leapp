@@ -67,7 +67,7 @@ export class SideBarComponent implements OnInit, OnDestroy {
   }
 
   resetFilters() {
-    console.log('in RESET filters');
+    document.querySelector('.sessions').classList.remove('filtered');
     sidebarHighlight.next({showAll: true, showPinned: false, selectedSegment: -1});
     globalFilteredSessions.next(this.workspaceService.sessions);
     globalHasFilter.next(false);
@@ -91,7 +91,6 @@ export class SideBarComponent implements OnInit, OnDestroy {
   deleteSegment(segment: Segment, event) {
     event.preventDefault();
     event.stopPropagation();
-    console.log(segment);
     this.workspaceService.removeSegment(segment);
     this.segments = JSON.parse(JSON.stringify(this.workspaceService.getSegments()));
   }
