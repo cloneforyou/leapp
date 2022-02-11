@@ -131,6 +131,9 @@ img {
   .selected-integration .mat-list-item-content {
     padding: 0 6px 0!important;
   }
+  .selected-integration:hover .mat-list-item-content {
+    padding: 0 6px 0!important;
+  }
   .selected-integration:hover .mat-list-item-content .mat-list-text .mat-line {
     section.status {
       left: 18px!important;

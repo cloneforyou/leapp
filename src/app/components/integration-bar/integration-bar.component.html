@@ -108,6 +108,7 @@
 
 <mat-menu #integrationMenu [hasBackdrop]="false" >
   <ng-template matMenuContent let-configuration="configuration">
+    <span mat-menu-item class="not-displayed">dummy fix for github issue 3352</span>
     <button mat-menu-item (click)="gotoForm(2, configuration)" *ngIf="!loadingInBrowser">
       <i class="moon-Edit"></i>
       <span> Edit</span>

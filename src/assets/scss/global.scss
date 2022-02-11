@@ -660,3 +660,8 @@ button, a, input, i {
   display: block;
   margin-top: 1px;
 }
+
+.command-bar:not(.compact) .top-right-option-button {
+  position: relative;
+  left: -10px;
+}
