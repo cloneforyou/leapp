@@ -20,6 +20,8 @@ speed-measure-plugin.json
 .project
 .classpath
 .c9/
+.cache/
+.python-version
 *.launch
 .settings/
 *.sublime-workspace
