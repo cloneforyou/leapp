@@ -53,68 +53,38 @@ For more information about features go to [our documentation](https://docs.leapp
 All the covered access methods can be found [here](https://docs.leapp.cloud/use-cases/intro/).
 
 
-# Installation
-Get [here](https://www.leapp.cloud/releases) the latest release.
+# Download
+You can find all the information needed to download and install Leapp in the [documentation](https://docs.leapp.cloud/installation/install-leapp/).
+Leapp can be installed on macOS, Linux, and Windows systems.
+
+... and nothing stops you from compiling Leapp yourself! You can find more information about how to
+compile Leapp in our [contributing guidelines](CONTRIBUTING.md).
 
 # Contributing
 
-Please read through our [contributing guidelines](.github/CONTRIBUTING.md) and [code of conduct](.github/CODE_OF_CONDUCT.md). Included are directions
-for opening issues, coding standards, and notes on development.
+Thank you for thinking about contributing to Leapp! 
 
-Editor preferences are available in the [editor config](.editorconfig) for easy use in
-common text editors. Read more and download plugins at [editorconfig.org](http://editorconfig.org).
+Read through our [contributing guidelines](CONTRIBUTING.md)
+to learn how you can bring your value to our project by submitting your first contribution.
 
-# Developing
+You can report bugs or suggest features using the GitHub issues channel; moreover, you can pick
+[a good first issue](https://github.com/noovolari/leapp/contribute) and make your first code contribution.
 
-Development on Leapp can be done on Mac, Windows, or Linux as long as you have
-[NodeJS](https://nodejs.org) and [Git](https://git-scm.com/). See the `.nvmrc` file located in the project for the correct Node version.
-
-<details>
-<summary>Initial Dev Setup</summary>
-
-This repository is structured as a monorepo and contains many Node.JS packages. Each package has
-its own set of commands, but the most common commands are available from the
-root [`package.json`](package.json) and can be accessed using the `npm run ...` command. Here
-are the only three commands you should need to start developing on the app.
-
-```bash
-# Install and Link Dependencies
-npm install
-
-
-# Start App without Live Reload
-npm run electron-dev
-```
-
-If Electron is failing building the native Library `Keytar` just run before `npm run electron-dev`:
-```bash
-# Clear Electron and Keytar conflicts
-npm run rebuild-keytar
-```
-
-</details>
-
-<details>
-<summary>Editor Requirements</summary>
-
-You can use any editor you'd like, but make sure to have support/plugins for
-the following tools:
-
-- [ESLint](http://eslint.org/) – For catching syntax problems and common errors
-
-</details>
+We want to thank you all!
+<a href="https://github.com/noovolari/leapp/graphs/contributors"><img src="https://opencollective.com/noovolari/contributors.svg?width=800&button=false" /></a>
 
 # Our Sponsors
 
 [<img hspace="5" src="https://avatars.githubusercontent.com/u/1290287?s=60&amp;v=4" width="90" height="90" alt="@taimos">](https://github.com/taimos)
 [<img hspace="5" src="https://avatars.githubusercontent.com/u/2232217?s=60&amp;v=4" width="90" height="90" alt="@aws">](https://github.com/aws)
 
-
 # Documentation
+
 Refer to the documentation [website](https://docs.leapp.cloud).
 
-# Links
-- [Glossary](.github/GLOSSARY.md): find other information about the system
-- [Contributing](./.github/CONTRIBUTING.md): follow the guidelines if you'd like to contribute to the project
+# Contacts
+
+You can chat with us inside our community so [join us](https://join.slack.com/t/noovolari/shared_invite/zt-noc0ju05-18_GRX~Zi6Jz8~95j5CySA), or send us a message through the [contacts form](https://www.leapp.cloud/contacts).
+
 # License
 [Mozilla Public License v2.0](https://github.com/Noovolari/leapp/blob/master/LICENSE)

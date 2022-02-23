@@ -202,9 +202,21 @@ The package.json file contains all the build scripts, in addition to the depende
 
 All the scripts are grouped under the “scripts” key. There you can find the “build-and-run-dev” script that you can use to build and run the Electron application locally.
 
+If Electron is failing building the native Library `Keytar` just run the following command, before `npm run build-and-run-dev`:
+
+```bash
+# Clear Electron and Keytar conflicts
+npm run rebuild-keytar
+```
+
 # Troubleshooting
 
 To troubleshoot the electron application in the development environment, please refer to [this](https://docs.leapp.cloud/troubleshooting/app-data/) documentation page. Moreover, you may find it useful to open the Developer Tools from the Electron’s BrowserWindow that hosts the Angular application.
+
+# Editor preferences
+
+Editor preferences are available in the [editor config](.editorconfig) for easy use in
+common text editors. Read more and download plugins at [editorconfig.org](http://editorconfig.org).
 
 # Linting
 
