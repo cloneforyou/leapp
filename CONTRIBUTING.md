@@ -82,22 +82,6 @@ This is the first time you’re contributing to Leapp. “good first issues” a
 
 For more info about how to start developing and proposing changes, please refer to the development.md [development.md](./DEVELOPMENT.MD) document.
 
-# Pull Requests
-
-Good pull requests (patches, improvements, new features) are a fantastic
-help. They should remain focused on the scope and avoid containing unrelated
-commits.
-
-**Please ask first** before embarking on any significant pull request (e.g.
-implementing features, refactoring code, porting to a different language),
-otherwise, you risk spending a lot of time working on something that might
-not get accepted into the project.
-
-**IMPORTANT**: by submitting a patch, you agree to allow the project owner to
-license your work under the same license as that used by the project.
-
-Please send a [GitHub Pull Request to Leapp](https://github.com/noovolari/leapp/pull/new/master) with a clear list of what you have changed. Tip: Learn more about [pull requests](http://help.github.com/pull-requests/)).
-
 # Conventional Commits
 
 This project uses [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/). Examples:
@@ -119,6 +103,26 @@ $ git commit -m "feat: a brief summary of the commit
 > A paragraph describing what changed and its impact."
 
 ```
+
+We rely on both [husky](https://github.com/typicode/husky) and [commitlint](https://github.com/conventional-changelog/commitlint) to check if the commit follows conventional commits’ guidelines.
+
+Before submitting your Pull Request, take your time to squash the commits related to your fix/feature. The same convention is applied to the Pull Request name; we suggest making the commit name match with the Pull Request one.
+
+# Pull Requests
+
+Good pull requests (patches, improvements, new features) are a fantastic
+help. They should remain focused on the scope and avoid containing unrelated
+commits.
+
+**Please ask first** before embarking on any significant pull request (e.g.
+implementing features, refactoring code, porting to a different language),
+otherwise, you risk spending a lot of time working on something that might
+not get accepted into the project.
+
+**IMPORTANT**: by submitting a patch, you agree to allow the project owner to
+license your work under the same license as that used by the project.
+
+Please send a [GitHub Pull Request to Leapp](https://github.com/noovolari/leapp/pull/new/master) with a clear list of what you have changed. Tip: Learn more about [pull requests](http://help.github.com/pull-requests/)).
 
 # Developer Certification of Origin (DCO)
 
