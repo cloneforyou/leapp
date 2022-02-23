@@ -171,11 +171,11 @@ export class IntegrationBarComponent implements OnInit, OnDestroy {
       this.loadingInBrowser = (this.selectedAwsSsoConfiguration.browserOpening === Constants.inBrowser.toString());
       this.loadingInApp = (this.selectedAwsSsoConfiguration.browserOpening === Constants.inApp.toString());
 
-      if(this.loadingInBrowser && !this.isOnline(this.selectedAwsSsoConfiguration)) {
-        this.modalRef = this.bsModalService.show(this.ssoModalTemplate, { class: 'sso-modal'});
-      }
-
       try {
+        if(this.loadingInBrowser && !this.isOnline(this.selectedAwsSsoConfiguration)) {
+          this.modalRef = this.bsModalService.show(this.ssoModalTemplate, { class: 'sso-modal'});
+        }
+
         const ssoRoleSessions: SsoRoleSession[] = await AwsSsoIntegrationService.getInstance().provisionSessions(this.selectedAwsSsoConfiguration.id);
         ssoRoleSessions.forEach(ssoRoleSession => {
           ssoRoleSession.awsSsoConfigurationId = configurationId;
@@ -190,7 +190,9 @@ export class IntegrationBarComponent implements OnInit, OnDestroy {
         this.loadingInApp = false;
       } catch (err) {
         await this.logout(configurationId);
-        throw err;
+        this.loggingService.toast(`Error during SSO Login. Invalid SSO URL`, ToastLevel.error);
+        this.modalRef.hide();
+        //throw err;
       }
     }
   }
@@ -198,6 +200,7 @@ export class IntegrationBarComponent implements OnInit, OnDestroy {
   async gotoWebForm(integrationId: string) {
     // TODO: check if we need to put this method in IntegrationService singleton - sync method
     this.awsSsoRoleService.interrupt();
+    this.modalRef.hide();
     await this.forceSync(integrationId);
   }
 
