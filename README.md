@@ -34,17 +34,12 @@ For more information about features go to [our documentation](https://docs.leapp
 
 # ✨ Features
 
-
-> We Strongly believe that access information to Cloud in `~/.aws` or `~/.azure` files are not safe, and **[we prefer to store that information in an encrypted file managed by the system.](https://docs.leapp.cloud/contributing/system_vault/)**
-> Credentials will be hourly rotated and accessible in those files only when they are needed, so only when Leapp is active.
-
-
 - **Cloud credentials generation in 1 click**
 - **Data [stored locally encrypted](https://docs.leapp.cloud/contributing/system_vault/) in the OS System Vault**
 - **Multiple Cloud-Access supported [strategies](https://docs.leapp.cloud/use-cases/intro/)**
 - **Automatic [short-lived credentials rotation](https://docs.leapp.cloud/concepts/)**
 - **Automatic provisioning of [Sessions](https://docs.leapp.cloud/sessions/) from [AWS Single Sign-on](https://docs.leapp.cloud/use-cases/aws_sso/)**
-- **Connect EC2 instances straight away**
+- **Connect to EC2 instances straight away**
 
 All the covered access methods can be found [here](https://docs.leapp.cloud/use-cases/intro/).
 
