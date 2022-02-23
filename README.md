@@ -32,7 +32,7 @@ For more information about features go to [our documentation](https://docs.leapp
   <img src=".github/images/Leapp-animation.gif" alt="Web interface gif" />
 </p>
 
-## ✨ Features
+# ✨ Features
 
 
 > We Strongly believe that access information to Cloud in `~/.aws` or `~/.azure` files are not safe, and **[we prefer to store that information in an encrypted file managed by the system.](https://docs.leapp.cloud/contributing/system_vault/)**
