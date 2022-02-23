@@ -1,3 +1,5 @@
+# Contributing to Leapp
+
 First of all, thank you for contributing to Leapp!
 
 The goal of this document is to **provide all the information you need to start contributing.**
