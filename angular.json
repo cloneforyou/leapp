@@ -43,7 +43,7 @@
             "sourceMap": true,
             "optimization": false,
             "namedChunks": true,
-            "allowedCommonJsDependencies": ["stream", "assert", "fs"]
+            "allowedCommonJsDependencies": ["stream", "assert", "fs", "crypto-js", "aws-sdk/clients/ssooidc", "aws-sdk/clients/sso"]
           },
           "configurations": {
             "staging": {
