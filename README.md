@@ -67,6 +67,7 @@ You can report bugs or suggest features using the GitHub issues channel; moreove
 [a good first issue](https://github.com/noovolari/leapp/contribute) and make your first code contribution.
 
 We want to thank you all!
+
 <a href="https://github.com/noovolari/leapp/graphs/contributors"><img src="https://opencollective.com/noovolari/contributors.svg?width=800&button=false" /></a>
 
 # Our Sponsors
