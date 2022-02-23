@@ -1,5 +1,6 @@
 <p align="center">
-  <img src=".github/images/README-1.png" alt="Leapp" height="150" />
+  <img src=".github/images/README-1.png#gh-dark-mode-only" alt="Leapp" height="150" />
+    <img src=".github/images/README-1-dark.png#gh-light-mode-only" alt="Leapp" height="150" />
 </p>
 
 <h1 align="center">Leapp</h1>
@@ -23,7 +24,7 @@
 
 **Leapp** is a Cross-Platform Cloud access App, built on top of [Electron](https://github.com/electron/electron).
 
-The App is designed to **manage and secure Cloud Access in multi-account environments.**
+The App is designed to **manage and secure Cloud Access in multi-account environments,** and it is available for MacOS, Windows, and Linux.
 
 For more information about features go to [our documentation](https://docs.leapp.cloud/).
 
@@ -31,23 +32,18 @@ For more information about features go to [our documentation](https://docs.leapp
   <img src=".github/images/Leapp-animation.gif" alt="Web interface gif" />
 </p>
 
+# ✨ Features
 
-# Key features
 
 > We Strongly believe that access information to Cloud in `~/.aws` or `~/.azure` files are not safe, and **[we prefer to store that information in an encrypted file managed by the system.](https://docs.leapp.cloud/contributing/system_vault/)**
 > Credentials will be hourly rotated and accessible in those files only when they are needed, so only when Leapp is active.
 
 
-- **Switch Cloud Profile in a click**
-
-- **[Secure](https://docs.leapp.cloud/contributing/system_vault/) repository for your access data**
-
-- **Multiple Cloud-Access [strategies](https://docs.leapp.cloud/use-cases/intro/)**
-
-- **[No long-lived](https://docs.leapp.cloud/concepts/) credentials**
-
-- **Generate and use sessions directly from [your aws Organization](https://docs.leapp.cloud/use-cases/aws_sso/)**
-
+- **Cloud credentials generation in 1 click**
+- **Data [stored locally encrypted](https://docs.leapp.cloud/contributing/system_vault/) in the OS System Vault**
+- **Multiple Cloud-Access supported [strategies](https://docs.leapp.cloud/use-cases/intro/)**
+- **Automatic [short-lived credentials rotation](https://docs.leapp.cloud/concepts/)**
+- **Automatic provisioning of [Sessions](https://docs.leapp.cloud/sessions/) from [AWS Single Sign-on](https://docs.leapp.cloud/use-cases/aws_sso/)**
 - **Connect EC2 instances straight away**
 
 All the covered access methods can be found [here](https://docs.leapp.cloud/use-cases/intro/).
