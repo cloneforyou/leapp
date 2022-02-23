@@ -1,18 +1,36 @@
-Leapp
-=========
-[![Language grade: JavaScript](https://img.shields.io/lgtm/grade/javascript/g/Noovolari/leapp.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/Noovolari/leapp/context:javascript)
-- Website: [leapp.cloud](https://www.leapp.cloud/)
-- Documentation Website: [docs.leapp.cloud](https://docs.leapp.cloud/)
-- Roadmap: [Roadmap](https://github.com/Noovolari/leapp/discussions/178)
-- Chat with us: [Slack](https://join.slack.com/t/noovolari/shared_invite/zt-opn8q98k-HDZfpJ2_2U3RdTnN~u_B~Q)
+<p align="center">
+  <img src=".github/images/README-1.png" alt="Leapp" height="150" />
+</p>
 
-![logo](.github/images/README-1.png)
+<h1 align="center">Leapp</h1>
 
-Leapp is a Cross-Platform Cloud access App, built on top of [Electron](https://github.com/electron/electron).
+<h4 align="center">
+  <a href="https://www.leapp.cloud">Website</a> |
+  <a href="https://roadmap.meilisearch.com/tabs/1-under-consideration">Roadmap</a> |
+  <a href="https://medium.com/leapp-cloud">Blog</a> |
+  <a href="https://join.slack.com/t/noovolari/shared_invite/zt-opn8q98k-HDZfpJ2_2U3RdTnN~u_B~Q">Slack</a> |
+  <a href="https://docs.leapp.cloud">Documentation</a> |
+  <a href="https://docs.leapp.cloud/troubleshooting/app-data/">Troubleshooting</a>
+</h4>
+
+<p align="center">
+  <a href="https://lgtm.com/projects/g/Noovolari/leapp/context:javascript"><img src="https://img.shields.io/lgtm/grade/javascript/g/Noovolari/leapp.svg?logo=lgtm&logoWidth=18" alt="Javascript"></a>
+  <a href="https://github.com/Noovolari/leapp/blob/master/LICENSE"><img alt="License" src="https://img.shields.io/github/license/noovolari/leapp"></a>
+  <a href="https://join.slack.com/t/noovolari/shared_invite/zt-opn8q98k-HDZfpJ2_2U3RdTnN~u_B~Q"><img src="https://img.shields.io/badge/slack-online-green" alt="Slack"></a>
+</p>
+
+<p align="center">⚡ Lightning Fast, Safe, Desktop App for Cloud credentials managing and generation</p>
+
+**Leapp** is a Cross-Platform Cloud access App, built on top of [Electron](https://github.com/electron/electron).
 
 The App is designed to **manage and secure Cloud Access in multi-account environments.**
 
-![Securing aws Credentials on DevOps machines 001](https://user-images.githubusercontent.com/9497292/114399348-1e942f80-9ba1-11eb-8b4a-74b60bd29189.jpeg)
+For more information about features go to [our documentation](https://docs.leapp.cloud/).
+
+<p align="center">
+  <img src=".github/images/Leapp-animation.gif" alt="Web interface gif" />
+</p>
+
 
 # Key features
 
@@ -33,8 +51,6 @@ The App is designed to **manage and secure Cloud Access in multi-account environ
 - **Connect EC2 instances straight away**
 
 All the covered access methods can be found [here](https://docs.leapp.cloud/use-cases/intro/).
-
-![Leapp App animation](.github/images/Leapp-animation.gif)
 
 
 # Installation
