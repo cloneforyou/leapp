@@ -20,4 +20,4 @@ An IAM User in AWS consists of a name and a set of long-term credentials. Leapp 
 ![Add AWS IAM User Screen](../../images/screens/newuxui/aws-iam-user.png){: .centered-image}
 ## Video Tutorial
 
-<video width="100%" autoplay="true" loop="true" control="false"> <source src="../../videos/newuxui/aws-iam-user.mp4" type="video/mp4"> </video>
+<video width="100%" muted autoplay loop> <source src="../../videos/newuxui/aws-iam-user.mp4" type="video/mp4"> </video>

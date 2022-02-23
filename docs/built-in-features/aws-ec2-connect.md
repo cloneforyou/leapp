@@ -16,7 +16,7 @@ To correctly connect follow these steps:
 6. Wait for the terminal to open
 7. Focus the terminal window and write ```/bin/bash```; press  ++return++  and you'll be inside the terminal of your Instance
 
-<video width="100%" autoplay="true" loop="true" control="false"> <source src="../../videos/newuxui/ssm.mp4" type="video/mp4"> </video>
+<video width="100%" muted autoplay loop> <source src="../../videos/newuxui/ssm.mp4" type="video/mp4"> </video>
 
 !!! Warning
 

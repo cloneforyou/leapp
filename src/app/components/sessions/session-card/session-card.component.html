@@ -8,7 +8,7 @@
 </td>
 <td (dblclick)="switchCredentials()" (click)="openOptionBar(session);" (contextmenu)="openContextMenu($event, session)" class="{{eOptionIds[session.sessionId] ? 'selected' : (session.status !== eSessionStatus.inactive ? 'active' : '')}} table-column-2" *ngIf="globalColumns.role">
   <span class="{{session.status === eSessionStatus.active ? 'strong' : ''}}">
-    <ng-container *ngIf="session.type !== eSessionType.awsIamUser">{{ session | detail }}</ng-container>
+    <ng-container *ngIf="session.type !== eSessionType.awsIamUser && session.type !== eSessionType.azure">{{ session | detail }}</ng-container>
   </span>
 </td>
 <td (dblclick)="switchCredentials()" (click)="openOptionBar(session);" (contextmenu)="openContextMenu($event, session)" class="{{eOptionIds[session.sessionId] ? 'selected' : (session.status !== eSessionStatus.inactive ? 'active' : '')}} table-column-3" *ngIf="globalColumns.provider">
@@ -33,7 +33,7 @@
 
 
 
-<div [matMenuTriggerFor]="menu" [style.position]="'absolute'" [style.left.px]="menuX" [style.top.px]="menuY"></div>
+<div [matMenuTriggerFor]="menu" [style.position]="'absolute'" [style.left.px]="menuX"></div>
 <mat-menu #menu [hasBackdrop]="false" role="menu">
   <span mat-menu-item class="not-displayed">dummy fix for github issue 3352</span>
 

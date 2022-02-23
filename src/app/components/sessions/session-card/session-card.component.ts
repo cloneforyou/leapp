@@ -1,4 +1,4 @@
-import {Component, Input, OnInit, QueryList, TemplateRef, ViewChild, ViewChildren} from '@angular/core';
+import {Component, Input, OnInit, TemplateRef, ViewChild} from '@angular/core';
 import {Session} from '../../../models/session';
 import {AwsSessionService} from '../../../services/session/aws/aws-session.service';
 import {AppService, LoggerLevel, ToastLevel} from '../../../services/app.service';
@@ -57,7 +57,6 @@ export class SessionCardComponent implements OnInit {
   @ViewChild(MatMenuTrigger)
   trigger: MatMenuTrigger;
 
-
   eSessionType = SessionType;
   eSessionStatus = SessionStatus;
   eOptionIds = optionBarIds;
@@ -79,7 +78,6 @@ export class SessionCardComponent implements OnInit {
   profiles: { value: string; label: string }[];
 
   menuX: number;
-  menuY: number;
 
   form = new FormGroup({
     awsProfile: new FormControl('', [Validators.required])
@@ -150,7 +148,7 @@ export class SessionCardComponent implements OnInit {
    * Stop sessions
    */
   stopSession() {
-    this.sessionService.stop(this.session.sessionId).then(_ => {});
+    this.sessionService.stop(this.session.sessionId).then(_ => {this.clearOptionIds();});
     this.logSessionData(this.session, `Stopped Session`);
     this.trigger.closeMenu();
   }
@@ -449,7 +447,6 @@ export class SessionCardComponent implements OnInit {
     this.appService.closeAllMenuTriggers();
 
     setTimeout(() => {
-      this.menuY = event.layerY - 10;
       this.menuX = event.layerX - 10;
 
       this.trigger.openMenu();
@@ -524,7 +521,7 @@ export class SessionCardComponent implements OnInit {
         iamRoleChainedSessionString +
         '</ul><br>Removing the sessions will also remove the iamRoleChained sessions associated with it. Do you want to proceed?';
     } else {
-      return 'Do you really want to delete this session?';
+      return `Do you really want to delete the session '${session.sessionName}'?`;
     }
   }
 }
