@@ -156,6 +156,8 @@ The actual project's structure is structured to allow developers to contribute t
 
 In particular, we want to focus the attention on the development of Session Service Patterns and Integrations.
 
+<br>
+
 **Session Service Pattern**
 
 A specific service manages the way each type of Session will handle the process of credentials generation.
@@ -168,7 +170,9 @@ There is a **three-level abstraction** implementation for this kind of service:
 - A **Provider Session Service** (i.e., *AWSSessionService*) extends the general session service and handles credentials for a specific Cloud Provider to Start, Stop, and Rotate each Session of this type. This level of abstraction unifies all the common actions for all the Access Methods within a Cloud Provider.
 - A **Provider Access Method Service** (i.e., *AWSIAMUserService*) is the concrete implementation of all the information needed to generate the credentials for a specific Access Method. It implements both CRUD methods and the specific steps to generate credentials for a given Access Method.
 
-### Integrations
+<br>
+
+**Integrations**
 
 To understand this concept, let’s dive into what the AWS SSO feature does. 
 
