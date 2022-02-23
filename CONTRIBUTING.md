@@ -8,7 +8,7 @@ Contributions and questions are not just welcome, **they’re essential!**
 
 Please open issues with ideas on how to improve Leapp, including feedback, critiques, and information about how you’re using it. Discussion is at the heart of the project and your thoughts and ideas will help make it better for everyone, thank you. 💙
 
-You can chat with us inside our community so [join us](https://join.slack.com/t/noovolari/shared_invite/zt-noc0ju05-18_GRX~Zi6Jz8~95j5CySA), or feel free to contact us via the email at [info@noovolari.com](mailto:info@noovolari.com?subject=Start contributing).
+You can chat with us inside our community so [join us](https://join.slack.com/t/noovolari/shared_invite/zt-noc0ju05-18_GRX~Zi6Jz8~95j5CySA), or feel free to contact us via the email at info@noovolari.com.
 
 # Code of Conduct
 
@@ -32,7 +32,7 @@ Contributors can start contributing even in “help wanted” issues. These are 
 
 Please respect the following restrictions:
 
-- Please **do not** use the issue tracker for personal support requests email [info@noovolari.com](mailto:info@noovolari.com?subject=Support request from CONTRIBUTING.md).
+- Please **do not** use the issue tracker for personal support requests email info@noovolari.com.
 - Please **do not** derail or troll issues. Keep the discussion on topic and respect the opinions of others.
 
 ## Reporting bugs
