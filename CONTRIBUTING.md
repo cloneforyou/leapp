@@ -1,28 +1,30 @@
 First of all, thank you for contributing to Leapp!
 
-The goal of this document is to provide all the information you need to start contributing.
+The goal of this document is to **provide all the information you need to start contributing.**
 
-Please, feel free to propose changes to this document in a pull request [Pull Request template](https://www.notion.so/Pull-Request-template-cba48da8d674457b9ac0ea29945f4911).
+Please, feel free to propose changes to this document in a pull request [Pull Request template](https://github.com/Noovolari/leapp/blob/master/.github/PULL_REQUEST_TEMPLATE.md).
 
-Contributions and questions are not just welcome, they’re essential! Please open issues with ideas on how to improve Leapp, including feedback, critiques, and information about how you’re using it. Discussion is at the heart of the project and your thoughts and ideas will help make it better for everyone, thank you. 💙
+Contributions and questions are not just welcome, **they’re essential!** 
 
-You can chat with us inside our community so [join us](https://join.slack.com/t/noovolari/shared_invite/zt-noc0ju05-18_GRX~Zi6Jz8~95j5CySA), or feel free to contact us via the email at info@noovolari.com.
+Please open issues with ideas on how to improve Leapp, including feedback, critiques, and information about how you’re using it. Discussion is at the heart of the project and your thoughts and ideas will help make it better for everyone, thank you. 💙
+
+You can chat with us inside our community so [join us](https://join.slack.com/t/noovolari/shared_invite/zt-noc0ju05-18_GRX~Zi6Jz8~95j5CySA), or feel free to contact us via the email at [info@noovolari.com](mailto:info@noovolari.com?subject=Start contributing).
 
 # Code of Conduct
 
-Here in Leapp, we aim to create great things by collaborating in the most respectful, inclusive, and effective way possible. This way to work is governed by a Code of Conduct document [Contributor Covenant Code of Conduct](https://www.notion.so/Contributor-Covenant-Code-of-Conduct-3fc314ce06954f26adad7ec7774c11e3).
+Here in Leapp, we aim to create great things by collaborating in the most respectful, inclusive, and effective way possible. This way to work is governed by a Code of Conduct document [Contributor Covenant Code of Conduct](./.github/CODE_OF_CONDUCT.md).
 
 # How can I contribute?
 
 You can start contributing to Leapp by
 
-- reporting bugs,
-- suggesting enhancements or new features,
-- and submitting your first code contribution.
+- [Reporting bugs](#reporting-bugs)
+- [Suggesting enhancements or new features](#suggesting-enhancements-or-new-features)
+- [Submitting your first code contribution](#your-first-code-contribution)
 
 Any other idea to contribute that we missed? Submit a Pull Request to share it with us!
 
-[GitHub Issues](https://github.com/Noovolari/leapp/issues) is the preferred contribution channel, but not the only one! You can suggest enhancements or new features in Leapp’s [public roadmap](https://portal.productboard.com/vtc7td5yjfptmgdsxnoorwwr/tabs/2-planned).
+[GitHub Issues](https://github.com/Noovolari/leapp/issues) is the preferred contribution channel, but not the only one! You can suggest enhancements or new features in Leapp’s [public roadmap](https://portal.productboard.com/vtc7td5yjfptmgdsxnoorwwr/tabs/2-planned). TOCHANGE LINK
 
 When creating a new issue through the [GitHub Issues](https://github.com/Noovolari/leapp/issues) channel, it’s really important to understand if it is a “beginner-friendly” one. Beginner-friendly issues can be a good starting point for new contributors; that’s the reason why you can label them as “good first issue”. Visit [here](https://github.com/noovolari/leapp/contribute) and make your first contribution to this repository by tackling one of the listed good first issues.
 
@@ -30,7 +32,7 @@ Contributors can start contributing even in “help wanted” issues. These are 
 
 Please respect the following restrictions:
 
-- Please **do not** use the issue tracker for personal support requests (email [info@noovolari.com](mailto:info@noovolari.com)).
+- Please **do not** use the issue tracker for personal support requests email [info@noovolari.com](mailto:info@noovolari.com?subject=Support request from CONTRIBUTING.md).
 - Please **do not** derail or troll issues. Keep the discussion on topic and respect the opinions of others.
 
 ## Reporting bugs
@@ -39,7 +41,7 @@ A bug is a *demonstrable problem* that is caused by the code in the repository.
 
 Prior to reporting a bug, please check if it is already tracked using the GitHub issue search. If it is marked as fixed but you are still experiencing it, add a comment to the issue’s discussion so that we can re-open it.
 
-To report a new bug we ask you to follow the template that you can find [here](https://github.com/noovolari/leapp/issues/new/choose) as “Bug report”.
+To report a new bug we ask you to follow the template that you can find [here](https://github.com/Noovolari/leapp/issues/new?assignees=&labels=bug&template=bug-report.md&).
 
 This template guides you during the definition of the bug. It includes:
 
@@ -52,16 +54,15 @@ This template guides you during the definition of the bug. It includes:
 - additional context;
 - how it is important to you (nice to have, important, critical).
 
-Once submitted, this issue will be labeled as “bug”.
 
 ## Suggesting enhancements or new features
 
 Feature requests are welcome. But take a moment to find out whether your idea
 fits with the scope and aims of the project. It's up to *you* to make a strong
-case to convince the project's developers of the merits of this feature. Please
-provide as much detail and context as possible.
+case to convince the project's developers of the merits of this feature. **Please
+provide as much detail and context as possible.**
 
-As for bug reporting, there is a template for new feature requests too. You can find it [here](https://github.com/noovolari/leapp/issues/new/choose) as “Feature request”. It includes:
+As for bug reporting, there is a template for new feature requests too. You can find it [here](https://github.com/Noovolari/leapp/issues/new?assignees=&labels=enhancement&template=feature_request.md). It includes:
 
 - a description of an eventual problem the feature is related to;
 - a description of the solution you would like;
@@ -81,7 +82,7 @@ Do you want to implement something from scratch or fix an issue?
 
 This is the first time you’re contributing to Leapp. “good first issues” and “help wanted” issues could be a nice starting point for you to get your hands dirty with the codebase.
 
-For more info about how to start developing and proposing changes, please refer to the development.md [development.md](https://www.notion.so/development-md-f092a58ba27749d296742ccd6eda9ae3) document.
+For more info about how to start developing and proposing changes, please refer to the development.md [development.md](./DEVELOPMENT.MD) document.
 
 # Pull Requests
 
@@ -97,7 +98,7 @@ not get accepted into the project.
 **IMPORTANT**: by submitting a patch, you agree to allow the project owner to
 license your work under the same license as that used by the project.
 
-Please send a [GitHub Pull Request to Leapp](https://github.com/noovolari/leapp/pull/new/master) with a clear list of what you have changed. You can use the provided Pull Request template [Pull Request template](https://www.notion.so/Pull-Request-template-cba48da8d674457b9ac0ea29945f4911) to fill in the details. Tip: Learn more about [pull requests](http://help.github.com/pull-requests/)).
+Please send a [GitHub Pull Request to Leapp](https://github.com/noovolari/leapp/pull/new/master) with a clear list of what you have changed. Tip: Learn more about [pull requests](http://help.github.com/pull-requests/)).
 
 # Conventional Commits
 
