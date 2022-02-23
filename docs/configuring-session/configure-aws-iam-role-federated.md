@@ -31,4 +31,4 @@ We currently only support SAML 2.0 federation.
 ![](../../images/screens/newuxui/aws-iam-role-federated.png?style=center-img "Add AWS IAM Role Federated Screen"){: .centered-image}
 ## Video tutorial
 
-<video width="100%" autoplay="true" loop="true" control="false"> <source src="../../videos/newuxui/aws-iam-federated.mp4" type="video/mp4"> </video>
+<video width="100%" muted autoplay loop> <source src="../../videos/newuxui/aws-iam-federated.mp4" type="video/mp4"> </video>
