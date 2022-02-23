@@ -70,8 +70,6 @@ As for bug reporting, there is a template for new feature requests too. You can 
 - additional context;
 - how it is important to you (nice to have, important, critical).
 
-If you create a new issue from the feature request template, it will be labeled as “enhancement”.
-
 You can even submit your feature request idea from our [public roadmap board](https://portal.productboard.com/vtc7td5yjfptmgdsxnoorwwr/tabs/5-ideas).
 
 Please consult the public roadmap to get an overview of new ideas that were accepted by Leapp maintainers.
