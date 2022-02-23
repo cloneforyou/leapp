@@ -65,15 +65,12 @@ theme:
         icon: material/toggle-switch
         name: Switch to light mode
 
-plugins:
-  - search
-  - mkdocs-video
-  - img2fig
-
 extra_css:
   - stylesheets/extra.css
 
 extra:
+  version:
+    provider: mike
   analytics:
     provider: google
     property: G-FB1NX90MYZ
@@ -97,10 +94,15 @@ markdown_extensions:
   - pymdownx.inlinehilite
   - pymdownx.snippets
   - pymdownx.keys
+  - meta
+  - attr_list
   - pymdownx.tasklist:
       custom_checkbox: true
   - pymdownx.superfences
   - pymdownx.tabbed:
       alternate_style: true
-  - meta
-  - attr_list
+
+plugins:
+  - search
+  - mkdocs-video
+  - img2fig

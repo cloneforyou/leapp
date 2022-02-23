@@ -55,7 +55,26 @@
     "dist-win-prod": "rm -rf electron/dist && rm -rf release && rm -rf dist && tsc --p electron && ng build --aot --configuration production --base-href ./ && mkdir -p electron/dist/electron/assets/images && cp -a electron/assets/images/* electron/dist/electron/assets/images/ && electron-builder build --win --x64",
     "dist-all-dev": "rm -rf electron/dist && rm -rf release && rm -rf dist && tsc --p electron && ng build --aot --base-href ./ && mkdir -p electron/dist/electron/assets/images && cp -a electron/assets/images/* electron/dist/electron/assets/images/ && electron-builder build --mac --win --linux",
     "dist-all-stag": "rm -rf electron/dist && rm -rf release && rm -rf dist && tsc --p electron && ng build --aot --configuration staging --base-href ./ && mkdir -p electron/dist/electron/assets/images && cp -a electron/assets/images/* electron/dist/electron/assets/images/ && electron-builder build --mac --win --linux",
-    "dist-all-prod": "rm -rf electron/dist && rm -rf release && rm -rf dist && tsc --p electron && ng build --aot --configuration production --base-href ./ && mkdir -p electron/dist/electron/assets/images && cp -a electron/assets/images/* electron/dist/electron/assets/images/ && electron-builder build --mac --win --linux"
+    "dist-all-prod": "rm -rf electron/dist && rm -rf release && rm -rf dist && tsc --p electron && ng build --aot --configuration production --base-href ./ && mkdir -p electron/dist/electron/assets/images && cp -a electron/assets/images/* electron/dist/electron/assets/images/ && electron-builder build --mac --win --linux",
+
+    "clean": "gushio gushio/target-clean.js",
+    "build-dev": "gushio gushio/target-build.js aot",
+    "build-stag": "gushio gushio/target-build.js 'configuration staging'",
+    "build-prod": "gushio gushio/target-build.js 'configuration production'",
+    "run-local": "electron --enable-accelerated-mjpeg-decode --enable-accelerated-video --ignore-gpu-blacklist --enable-native-gpu-memory-buffers --enable-gpu-rasterization --ignore-gpu-blacklist .",
+    "build-and-run-dev": "gushio gushio/target-build-and-run.js aot",
+    "release-mac-dev": "gushio gushio/target-release.js aot mac",
+    "release-mac-stag": "gushio gushio/target-release.js 'configuration staging' mac",
+    "release-mac-prod": "gushio gushio/target-release.js 'configuration production' mac",
+    "release-linux-dev": "gushio gushio/target-release.js aot linux",
+    "release-linux-stag": "gushio gushio/target-release.js 'configuration staging' linux",
+    "release-linux-prod": "gushio gushio/target-release.js 'configuration production' linux",
+    "release-win-dev": "gushio gushio/target-release.js aot win",
+    "release-win-stag": "gushio gushio/target-release.js 'configuration staging' win",
+    "release-win-prod": "gushio gushio/target-release.js 'configuration production' win",
+    "release-all-dev": "gushio gushio/target-release.js aot all",
+    "release-all-stag": "gushio gushio/target-release.js 'configuration staging' all",
+    "release-all-prod": "gushio gushio/target-release.js 'configuration production' all"
   },
   "build": {
     "publish": [
@@ -166,7 +185,7 @@
     "@commitlint/cli": "^12.1.4",
     "@commitlint/config-conventional": "^12.1.4",
     "@electron/remote": "^2.0.1",
-    "@ng-select/ng-select": "~6.1.0",
+    "@ng-select/ng-select": "8.1.1",
     "@ngx-translate/core": "~13.0.0",
     "@ngx-translate/http-loader": "~6.0.0",
     "@sebgroup/magic-iframe": "1.1.2",
@@ -205,7 +224,6 @@
     "keytar": "^7.8.0",
     "markdown-it": "^12.3.2",
     "md5-file": "~5.0.0",
-    "menubar": "~9.0.3",
     "mousetrap": "~1.6.5",
     "ms": "^2.1.3",
     "ngx-bootstrap": "^8.0.0",
@@ -234,11 +252,11 @@
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^13.2.2",
-    "@angular-eslint/builder": "12.5.0",
-    "@angular-eslint/eslint-plugin": "4.2.0",
-    "@angular-eslint/eslint-plugin-template": "4.2.0",
-    "@angular-eslint/schematics": "12.5.0",
-    "@angular-eslint/template-parser": "4.2.0",
+    "@angular-eslint/builder": "^13.1.0",
+    "@angular-eslint/eslint-plugin": "^13.1.0",
+    "@angular-eslint/eslint-plugin-template": "^13.1.0",
+    "@angular-eslint/schematics": "^13.1.0",
+    "@angular-eslint/template-parser": "^13.1.0",
     "@angular/cli": "^13.2.2",
     "@angular/compiler-cli": "^13.2.1",
     "@angular/language-service": "~13.2.1",
@@ -248,8 +266,8 @@
     "@types/jasminewd2": "~2.0.8",
     "@types/node": "^15.0.1",
     "@types/uuid": "^8.3.0",
-    "@typescript-eslint/eslint-plugin": "4.16.1",
-    "@typescript-eslint/parser": "4.16.1",
+    "@typescript-eslint/eslint-plugin": "^5.12.0",
+    "@typescript-eslint/parser": "^5.12.0",
     "dotenv": "^10.0.0",
     "electron": "^17.0.0",
     "electron-builder": "22.14.3",
@@ -277,7 +295,8 @@
     "protractor": "^7.0.0",
     "ts-node": "^9.1.1",
     "typescript": "4.5.5",
-    "util": "^0.12.4"
+    "util": "^0.12.4",
+    "gushio": "~0.5.0"
   },
   "browser": {
     "crypto": false
