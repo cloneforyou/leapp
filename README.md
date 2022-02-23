@@ -1,5 +1,6 @@
 <p align="center">
-  <img src=".github/images/README-1.png" alt="Leapp" height="150" />
+  <img src=".github/images/README-1.png#gh-dark-mode-only" alt="Leapp" height="150" />
+    <img src=".github/images/README-1-dark.png#gh-light-mode-only" alt="Leapp" height="150" />
 </p>
 
 <h1 align="center">Leapp</h1>
