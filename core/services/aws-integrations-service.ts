@@ -22,7 +22,7 @@ export class AwsIntegrationsService {
     }
 
     public remainingHours(integration: AwsSsoIntegration): string {
-        return formatDistance(new Date(integration.accessTokenExpiration), new Date(), {addSuffix: true})
+        return formatDistance(new Date(integration.accessTokenExpiration), this.getDate(), {addSuffix: true})
     }
 
     private getDate(): Date {
