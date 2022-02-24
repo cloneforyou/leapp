@@ -4,7 +4,7 @@ module.exports = {
     description: 'Build leapp desktop app',
     version: '0.1',
     arguments: [
-      {name: '<target>', choices: ['aot', 'configuration staging', 'configuration production']},
+      {name: '<target>', choices: ['aot', 'configuration production']},
     ],
   },
   run: async (args) => {
@@ -15,7 +15,6 @@ module.exports = {
     const compileFunction = require('./compile-func')
     try {
       await gushio.run(path.join(__dirname, './target-clean.js'))
-
 
       console.log('Building leapp... ')
 

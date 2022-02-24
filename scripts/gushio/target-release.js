@@ -5,7 +5,7 @@ module.exports = {
     description: 'Build distributable leapp desktop app package',
     version: '0.1',
     arguments: [
-      {name: '<target>', choices: ['aot', 'configuration staging', 'configuration production']},
+      {name: '<target>', choices: ['aot', 'configuration production']},
       {name: '<platform-version>', choices: ['mac', 'linux', 'win', 'all']},
     ],
   },

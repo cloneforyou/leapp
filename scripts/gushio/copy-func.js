@@ -2,5 +2,4 @@ module.exports = async function copyFunction(path, relativeSourcePath, relativeD
     const sourcePath = path.join(__dirname, relativeSourcePath)
     const destinationPath = path.join(__dirname, relativeDestinationPath)
     await fs.copy(sourcePath, destinationPath)
-
 }
