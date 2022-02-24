@@ -52,7 +52,7 @@ theme:
     - navigation.top
     - content.code.annotate
   font:
-    text: Lato
+    text: Montserrat
   palette:
     - media: "(prefers-color-scheme: light)"
       scheme: default
