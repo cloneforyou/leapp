@@ -46,7 +46,7 @@ export default class AddSession extends Command {
     }
 
     public async chooseAccessMethod(cloudProviderType: CloudProviderType): Promise<AccessMethod> {
-        const accessMethods = this.leappCliService.cloudProviderService.availableAccessMethods(cloudProviderType)
+        const accessMethods = this.leappCliService.cloudProviderService.creatableAccessMethods(cloudProviderType)
         const accessMethodAnswer: any = await this.leappCliService.inquirer.prompt([{
             name: 'selectedMethod',
             message: 'select an access method',

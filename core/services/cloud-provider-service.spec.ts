@@ -13,12 +13,16 @@ describe('CloudProviderService', () => {
     })
 
     test('getSessionTypeMap', () => {
-        const map = new Map([[CloudProviderType.AWS, [new AccessMethod(SessionType.awsIamUser, 'IAM User', [])]]])
+        const map = new Map([[CloudProviderType.AWS, [
+            new AccessMethod(SessionType.awsIamUser, 'IAM User', [], true),
+            new AccessMethod(SessionType.awsSsoRole, 'SSO Role', [], false)]
+        ]])
         const service = new CloudProviderService(null, null, null, null, null)
         const spy = jest.spyOn(CloudProviderService.prototype as any, 'accessMethodMap', 'get').mockReturnValue(map)
 
         let expectedMap = new Map<SessionType, string>([
-            [SessionType.awsIamUser, 'IAM User']
+            [SessionType.awsIamUser, 'IAM User'],
+            [SessionType.awsSsoRole, 'SSO Role']
         ])
         const sessionTypeLabelMap = service.getSessionTypeMap()
         expect(sessionTypeLabelMap).toEqual(expectedMap)
@@ -26,7 +30,7 @@ describe('CloudProviderService', () => {
         spy.mockRestore()
     })
 
-    test('availableAccessMethods - AWS', () => {
+    test('creatableAccessMethods - AWS', () => {
         const awsCoreService: any = {getRegions: () => [{region: 'region1'}, {region: 'region2'}]}
         const azureCoreService: any = {getLocations: () => []}
         const repository: any = {
@@ -76,7 +80,7 @@ describe('CloudProviderService', () => {
             }
         ]
 
-        const accessMethods = service.availableAccessMethods(CloudProviderType.AWS)
+        const accessMethods = service.creatableAccessMethods(CloudProviderType.AWS)
         expect(accessMethods).toEqual([
             {
                 'accessMethodFields': [
@@ -114,7 +118,8 @@ describe('CloudProviderService', () => {
                     }
                 ],
                 'label': 'IAM User',
-                'sessionType': 'awsIamUser'
+                'sessionType': 'awsIamUser',
+                'creatable': true
             },
             {
                 'accessMethodFields': [
@@ -153,7 +158,8 @@ describe('CloudProviderService', () => {
                     }
                 ],
                 'label': 'IAM Role Federated',
-                'sessionType': 'awsIamRoleFederated'
+                'sessionType': 'awsIamRoleFederated',
+                'creatable': true
             },
             {
                 'accessMethodFields': [
@@ -205,7 +211,8 @@ describe('CloudProviderService', () => {
                     }
                 ],
                 'label': 'IAM Role Chained',
-                'sessionType': 'awsIamRoleChained'
+                'sessionType': 'awsIamRoleChained',
+                'creatable': true
             }
         ])
 
@@ -216,7 +223,7 @@ describe('CloudProviderService', () => {
         expect(idpUrlAccessMethodField).toBeInstanceOf(IdpUrlAccessMethodField)
     })
 
-    test('availableAccessMethods - Azure', () => {
+    test('creatableAccessMethods - Azure', () => {
         const awsCoreService: any = {getRegions: () => []}
         const azureCoreService: any = {getLocations: () => [{location: 'location1'}, {location: 'location2'}]}
         const repository: any = {getSessions: () => []}
@@ -225,7 +232,7 @@ describe('CloudProviderService', () => {
         const service = new CloudProviderService(awsCoreService, azureCoreService, namedProfileService,
             idpUrlProfileService, repository)
 
-        expect(service.availableAccessMethods(CloudProviderType.AZURE)).toEqual([
+        expect(service.creatableAccessMethods(CloudProviderType.AZURE)).toEqual([
             {
                 'accessMethodFields': [
                     {
@@ -260,7 +267,8 @@ describe('CloudProviderService', () => {
                     }
                 ],
                 'label': 'Azure',
-                'sessionType': 'azure'
+                'sessionType': 'azure',
+                'creatable': true
             }
         ])
     })

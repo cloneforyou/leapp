@@ -33,6 +33,7 @@ USAGE
 * [`leapp idp-url create`](#leapp-idp-url-create)
 * [`leapp idp-url delete`](#leapp-idp-url-delete)
 * [`leapp idp-url edit`](#leapp-idp-url-edit)
+* [`leapp integration list`](#leapp-integration-list)
 * [`leapp profile create`](#leapp-profile-create)
 * [`leapp profile delete`](#leapp-profile-delete)
 * [`leapp profile edit`](#leapp-profile-edit)
@@ -108,6 +109,33 @@ DESCRIPTION
 
 EXAMPLES
   $leapp idp-url edit
+```
+
+## `leapp integration list`
+
+Show integrations list
+
+```
+USAGE
+  $ leapp integration list [--columns <value> | -x] [--sort <value>] [--filter <value>] [--output csv|json|yaml |  |
+    [--csv | --no-truncate]] [--no-header | ]
+
+FLAGS
+  -x, --extended     show extra columns
+  --columns=<value>  only show provided columns (comma-separated)
+  --csv              output is csv format [alias: --output=csv]
+  --filter=<value>   filter property by partial string matching, ex: name=foo
+  --no-header        hide table header from output
+  --no-truncate      do not truncate output to fit screen
+  --output=<option>  output in a more machine friendly format
+                     <options: csv|json|yaml>
+  --sort=<value>     property to sort by (prepend '-' for descending)
+
+DESCRIPTION
+  Show integrations list
+
+EXAMPLES
+  $leapp integration list
 ```
 
 ## `leapp profile create`

@@ -49,7 +49,7 @@ export default class ChangeSessionRegion extends Command {
     }
 
     public async changeSessionRegion(session: Session, newRegion: string): Promise<void> {
-        this.leappCliService.regionService.changeRegion(session, newRegion)
+        this.leappCliService.regionsService.changeRegion(session, newRegion)
         this.log('session region changed')
     }
 }

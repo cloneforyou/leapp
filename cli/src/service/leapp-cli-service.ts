@@ -12,7 +12,7 @@ import {RetroCompatibilityService} from '@noovolari/leapp-core/services/retro-co
 import {AwsParentSessionFactory} from '@noovolari/leapp-core/services/session/aws/aws-parent-session.factory'
 import {AwsIamRoleChainedService} from '@noovolari/leapp-core/services/session/aws/aws-iam-role-chained-service'
 import {Repository} from '@noovolari/leapp-core/services/repository'
-import {RegionService} from '@noovolari/leapp-core/services/region-service'
+import {RegionsService} from '@noovolari/leapp-core/services/regions-service'
 import {AwsSsoOidcService} from '@noovolari/leapp-core/services/session/aws/aws-sso-oidc.service'
 import {AwsSsoRoleService} from '@noovolari/leapp-core/services/session/aws/aws-sso-role-service'
 import {WorkspaceService} from '@noovolari/leapp-core/services/workspace-service'
@@ -27,6 +27,7 @@ import {constants} from '@noovolari/leapp-core/models/constants'
 import {NamedProfilesService} from '@noovolari/leapp-core/services/named-profiles-service'
 import {IdpUrlsService} from '@noovolari/leapp-core/services/idp-urls-service'
 import CliInquirer from 'inquirer'
+import {AwsIntegrationsService} from '@noovolari/leapp-core/services/aws-integrations-service'
 
 export class LeappCliService {
 
@@ -188,13 +189,13 @@ export class LeappCliService {
         return this.repositoryInstance
     }
 
-    private regionServiceInstance: RegionService
+    private regionsServiceInstance: RegionsService
 
-    get regionService(): RegionService {
-        if (!this.regionServiceInstance) {
-            this.regionServiceInstance = new RegionService(this.sessionFactory, this.repository, this.workspaceService)
+    get regionsService(): RegionsService {
+        if (!this.regionsServiceInstance) {
+            this.regionsServiceInstance = new RegionsService(this.sessionFactory, this.repository, this.workspaceService)
         }
-        return this.regionServiceInstance
+        return this.regionsServiceInstance
     }
 
     private namedProfilesServiceInstance: NamedProfilesService
@@ -217,6 +218,16 @@ export class LeappCliService {
     }
 
     private keyChainServiceInstance: KeychainService
+
+    private awsIntegrationsServiceInstance: AwsIntegrationsService
+
+    get awsIntegrationsService(): AwsIntegrationsService {
+        if (!this.awsIntegrationsServiceInstance) {
+            this.awsIntegrationsServiceInstance = new AwsIntegrationsService(this.repository, this.awsSsoOidcService,
+                this.awsSsoRoleService)
+        }
+        return this.awsIntegrationsServiceInstance
+    }
 
     get keyChainService(): KeychainService {
         if (!this.keyChainServiceInstance) {

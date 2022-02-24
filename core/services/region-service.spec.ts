@@ -1,7 +1,7 @@
-import {RegionService} from './region-service'
+import {RegionsService} from './regions-service'
 import {SessionStatus} from '../models/session-status'
 
-describe('RegionService', () => {
+describe('RegionsService', () => {
 
     test('changeRegion, session not active', async () => {
         const session = {sessionId: 'sid1', type: 'sessionType', status: SessionStatus.pending, region: 'oldRegion'}
@@ -19,7 +19,7 @@ describe('RegionService', () => {
             updateSession: jest.fn()
         }
 
-        const regionService = new RegionService(sessionFactory as any, repository as any, workspaceService as any)
+        const regionService = new RegionsService(sessionFactory as any, repository as any, workspaceService as any)
         await regionService.changeRegion(session as any, 'newRegion')
 
         expect(session.region).toBe('newRegion')
@@ -56,7 +56,7 @@ describe('RegionService', () => {
             })
         }
 
-        const regionService = new RegionService(sessionFactory as any, repository as any, workspaceService as any)
+        const regionService = new RegionsService(sessionFactory as any, repository as any, workspaceService as any)
         await regionService.changeRegion(session as any, 'newRegion')
 
         expect(isSessionActive).toBe(true)
@@ -72,7 +72,7 @@ describe('RegionService', () => {
         const repository = {
             getDefaultRegion: () => defaultRegion
         }
-        const regionService = new RegionService(null, repository as any, null)
+        const regionService = new RegionsService(null, repository as any, null)
 
         expect(regionService.getDefaultAwsRegion()).toBe(defaultRegion)
     })
@@ -81,7 +81,7 @@ describe('RegionService', () => {
         const repository = {
             updateDefaultRegion: jest.fn()
         }
-        const regionService = new RegionService(null, repository as any, null)
+        const regionService = new RegionsService(null, repository as any, null)
 
         const newRegion = 'newDefaultRegion'
         regionService.changeDefaultAwsRegion(newRegion)

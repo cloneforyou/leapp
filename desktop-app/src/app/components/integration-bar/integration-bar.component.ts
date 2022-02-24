@@ -198,6 +198,7 @@ export class IntegrationBarComponent implements OnInit, OnDestroy {
   public setValues(): void {
     this.modifying = 0;
     this.regions = this.leappCoreService.awsCoreService.getRegions();
+    this.regions = this.leappCoreService.awsCoreService.getRegions();
     this.awsSsoConfigurations = this.leappCoreService.repository.listAwsSsoConfigurations();
     this.logoutLoadings = {};
     this.awsSsoConfigurations.forEach((sc) => {

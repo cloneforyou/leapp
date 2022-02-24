@@ -105,6 +105,9 @@
       },
       "region": {
         "description": "AWS regions management"
+      },
+      "integration": {
+        "description": "AWS integrations management"
       }
     },
     "macos": {
@@ -122,7 +125,7 @@
     "pack-win": "oclif pack:win",
     "postpack": "gushio gushio/target-post-pack.js",
     "version": "oclif readme && git add README.md",
-    "add-session": "./bin/dev session add"
+    "list-session": "./bin/dev session list"
   },
   "types": "dist/index.d.ts"
 }

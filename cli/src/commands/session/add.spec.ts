@@ -34,7 +34,7 @@ describe('AddSession', () => {
     test('chooseAccessMethod', async () => {
         const leappCliService: any = {
             cloudProviderService: {
-                availableAccessMethods: () => {
+                creatableAccessMethods: () => {
                     return [{label: 'IAmUser'}]
                 }
             },

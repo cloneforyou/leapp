@@ -12,7 +12,7 @@ import {IdpUrlsService} from './idp-urls-service'
 import {Repository} from './repository'
 import {IdpUrlAccessMethodField} from '../models/idp-url-access-method-field'
 
-export const CreateNewIdpUrlFieldChoice = "CreateNewIdpUrlFieldChoice"
+export const CreateNewIdpUrlFieldChoice = 'CreateNewIdpUrlFieldChoice'
 
 export class CloudProviderService {
     public constructor(private awsCoreService: AwsCoreService, private azureCoreService: AzureCoreService,
@@ -24,12 +24,12 @@ export class CloudProviderService {
         return [CloudProviderType.AWS, CloudProviderType.AZURE]
     }
 
-    public availableAccessMethods(cloudProviderType: CloudProviderType): AccessMethod[] {
-        return this.accessMethodMap.get(cloudProviderType)
+    public creatableAccessMethods(cloudProviderType: CloudProviderType): AccessMethod[] {
+        return this.accessMethodMap.get(cloudProviderType).filter(accessMethod => accessMethod.creatable)
     }
 
     public getSessionTypeMap(): Map<SessionType, string> {
-        const accessMethods = [].concat(...Array.from(this.accessMethodMap.values()))
+        const accessMethods = [...this.accessMethodMap.values()].flatMap(accessMethods => accessMethods)
         return new Map(accessMethods.map(accessMethod => [accessMethod.sessionType, accessMethod.label] as [SessionType, string]))
     }
 
@@ -54,7 +54,7 @@ export class CloudProviderService {
                     new AccessMethodField('region', 'Select region', AccessMethodFieldType.list, awsRegionChoices),
                     new AccessMethodField('mfaDevice', 'Insert Mfa Device ARN', AccessMethodFieldType.input),
                     new AccessMethodField('profileId', 'Select the Named Profile', AccessMethodFieldType.list, awsNamedProfileChoices)
-                ]),
+                ], true),
                 new AccessMethod(SessionType.awsIamRoleFederated, 'IAM Role Federated', [
                     new AccessMethodField('sessionName', 'Insert session alias', AccessMethodFieldType.input),
                     new AccessMethodField('region', 'Select region', AccessMethodFieldType.list, awsRegionChoices),
@@ -62,7 +62,7 @@ export class CloudProviderService {
                     new IdpUrlAccessMethodField('idpUrl', 'Select the SAML 2.0 Url', AccessMethodFieldType.list, idpUrlChoices),
                     new AccessMethodField('idpArn', 'Insert the AWS Identity Provider ARN', AccessMethodFieldType.input),
                     new AccessMethodField('profileId', 'Select the Named Profile', AccessMethodFieldType.list, awsNamedProfileChoices)
-                ]),
+                ], true),
                 new AccessMethod(SessionType.awsIamRoleChained, 'IAM Role Chained', [
                     new AccessMethodField('sessionName', 'Insert session alias', AccessMethodFieldType.input),
                     new AccessMethodField('region', 'Select region', AccessMethodFieldType.list, awsRegionChoices),
@@ -70,7 +70,8 @@ export class CloudProviderService {
                     new AccessMethodField('parentSessionId', 'Select Assumer Session', AccessMethodFieldType.list, awsAssumerSessionChoices),
                     new AccessMethodField('roleSessionName', 'Role Session Name', AccessMethodFieldType.input),
                     new AccessMethodField('profileId', 'Select the Named Profile', AccessMethodFieldType.list, awsNamedProfileChoices)
-                ])
+                ], true),
+                new AccessMethod(SessionType.awsSsoRole, 'AWS Single Sign-On', [], false)
             ]],
             [CloudProviderType.AZURE, [
                 new AccessMethod(SessionType.azure, 'Azure', [
@@ -78,7 +79,7 @@ export class CloudProviderService {
                     new AccessMethodField('region', 'Select Location', AccessMethodFieldType.list, azureLocationChoices),
                     new AccessMethodField('subscriptionId', 'Insert Subscription Id', AccessMethodFieldType.input),
                     new AccessMethodField('tenantId', 'Insert Tenant Id', AccessMethodFieldType.input)
-                ])
+                ], true)
             ]]
         ])
     }
@@ -118,6 +119,6 @@ export class CloudProviderService {
 
     private getIdpUrls(): FieldChoice[] {
         const idpUrlsFieldChoices = this.idpUrlService.getIdpUrls().map(idpUrl => new FieldChoice(idpUrl.url, idpUrl.id))
-        return idpUrlsFieldChoices.concat(new FieldChoice("Create new", CreateNewIdpUrlFieldChoice))
+        return idpUrlsFieldChoices.concat(new FieldChoice('Create new', CreateNewIdpUrlFieldChoice))
     }
 }

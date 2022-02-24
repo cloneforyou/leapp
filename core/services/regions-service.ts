@@ -4,7 +4,7 @@ import {WorkspaceService} from './workspace-service'
 import {Session} from '../models/session'
 import {SessionStatus} from '../models/session-status'
 
-export class RegionService {
+export class RegionsService {
 
     constructor(private sessionFactory: SessionFactory, private repository: Repository,
                 private workspaceService: WorkspaceService) {

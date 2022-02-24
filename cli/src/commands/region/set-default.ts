@@ -24,7 +24,7 @@ export default class ChangeDefaultRegion extends Command {
     }
 
     public async selectDefaultRegion(): Promise<string> {
-        const defaultRegion = this.leappCliService.regionService.getDefaultAwsRegion()
+        const defaultRegion = this.leappCliService.regionsService.getDefaultAwsRegion()
         const availableRegions = this.leappCliService.cloudProviderService.availableRegions(SessionType.aws)
 
         const answer: any = await this.leappCliService.inquirer.prompt([{
@@ -37,7 +37,7 @@ export default class ChangeDefaultRegion extends Command {
     }
 
     public async changeDefaultRegion(newDefaultRegion: string): Promise<void> {
-        this.leappCliService.regionService.changeDefaultAwsRegion(newDefaultRegion)
+        this.leappCliService.regionsService.changeDefaultAwsRegion(newDefaultRegion)
         this.log('default region changed')
     }
 }
