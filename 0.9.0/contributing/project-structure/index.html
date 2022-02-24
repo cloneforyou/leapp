@@ -1650,9 +1650,9 @@ async deApplyCredentials(sessionId: string): Promise&lt;void&gt; {}
       }
   }
 </code></pre></div>
-<p>The first of the abstract methods we need to implement in the Access Method Service. We use this to generate credentials and return them in the form of a <strong>Javascript Promise -</strong> because the procedure is potentially not immediate and asynchronous.</p>
+<p>The first of the abstract methods we need to implement in the Access Method Service. We use this to generate credentials and return them in the form of a <strong>Javascript Promise</strong> - because the procedure is potentially not immediate and asynchronous.</p>
 <p>We retrieve the session previously created using the <strong>sessionId</strong>, which is passed as a parameter; from there we check its token expiration to see if we need to generate new credentials or reuse the one previously created.</p>
-<p>If we already have a valid session token, we retrieve it from the OS vault, parse the JSON string to construct a valid object to return for further processing. Note that when the return type is a Promise, any normal object will be directly cast to Promise<Object>.</p>
+<p>If we already have a valid session token, we retrieve it from the OS vault, parse the JSON string to construct a valid object to return for further processing. Note that when the return type is a Promise, any normal object will be directly cast to Promise&lt;Object&gt;.</p>
 <p>If we don't have any token expiration property (first generation) or the token is expired, we retrieve static credentials from the OS vault and use them in combination with the IAM STS client to generate a new Session Token with temporary credentials using</p>
 <div class="highlight"><pre><span></span><code>this.generateSessionToken(session, sts, params);
 </code></pre></div>
