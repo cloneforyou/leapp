@@ -26,7 +26,7 @@ You can start contributing to Leapp by
 
 Any other idea to contribute that we missed? Submit a Pull Request to share it with us!
 
-[GitHub Issues](https://github.com/Noovolari/leapp/issues) is the preferred contribution channel, but not the only one! You can suggest enhancements or new features in Leapp’s [public roadmap](https://portal.productboard.com/vtc7td5yjfptmgdsxnoorwwr/tabs/2-planned). TOCHANGE LINK
+[GitHub Issues](https://github.com/Noovolari/leapp/issues) is the preferred contribution channel, but not the only one! You can suggest enhancements or new features in Leapp’s [public roadmap](https://roadmap.leapp.cloud/tabs/4-in-progress). TOCHANGE LINK
 
 When creating a new issue through the [GitHub Issues](https://github.com/Noovolari/leapp/issues) channel, it’s really important to understand if it is a “beginner-friendly” one. Beginner-friendly issues can be a good starting point for new contributors; that’s the reason why you can label them as “good first issue”. Visit [here](https://github.com/noovolari/leapp/contribute) and make your first contribution to this repository by tackling one of the listed good first issues.
 
@@ -72,9 +72,9 @@ As for bug reporting, there is a template for new feature requests too. You can 
 - additional context;
 - how it is important to you (nice to have, important, critical).
 
-You can even submit your feature request idea from our [public roadmap board](https://portal.productboard.com/vtc7td5yjfptmgdsxnoorwwr/tabs/5-ideas).
+You can even submit your feature request idea from our [public roadmap board](https://roadmap.leapp.cloud/tabs/4-in-progress).
 
-Please consult the public roadmap to get an overview of new ideas that were accepted by Leapp maintainers.
+Please consult the [public roadmap](https://roadmap.leapp.cloud/tabs/4-in-progress) to get an overview of new ideas that were accepted by Leapp maintainers.
 
 ## ****Your First Code Contribution****
 

@@ -5,7 +5,7 @@ To persist your configuration online, we implemented **Zero-Knowledge encryption
 !!! Warning
 
     This is implemented to save your configuration online in the PRO and TEAM versions of Leapp.</br>
-    Don't know yet about the PRO and TEAM versions? Check our [roadmap](/roadmap).
+    Don't know yet about the PRO and TEAM versions? Check our [roadmap](https://roadmap.leapp.cloud/tabs/4-in-progress).
 
 !!! Info
 

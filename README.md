@@ -7,7 +7,7 @@
 
 <h4 align="center">
   <a href="https://www.leapp.cloud">Website</a> |
-  <a href="https://roadmap.meilisearch.com/tabs/1-under-consideration">Roadmap</a> |
+  <a href="https://roadmap.leapp.cloud/tabs/4-in-progress">Roadmap</a> |
   <a href="https://medium.com/leapp-cloud">Blog</a> |
   <a href="https://join.slack.com/t/noovolari/shared_invite/zt-opn8q98k-HDZfpJ2_2U3RdTnN~u_B~Q">Slack</a> |
   <a href="https://docs.leapp.cloud">Documentation</a> |
